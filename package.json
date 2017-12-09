@@ -4,11 +4,15 @@
   "description": "Iryna Donska",
   "main": "index.js",
   "dependencies": {
-    "jquery": "^3.2.1",
-    "normalize.css": "^7.0.0"
+    "jquery": "^3.2.1"
   },
   "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.2",
+    "babel-plugin-transform-es2015-modules-commonjs": "^6.26.0",
+    "babel-preset-es2015": "^6.24.1",
     "browser-sync": "^2.18.13",
+    "clean-webpack-plugin": "^0.1.17",
     "del": "^3.0.0",
     "eslint": "^4.12.1",
     "eslint-config-airbnb": "^16.1.0",
@@ -31,6 +35,7 @@
     "gulp-svg-sprites": "^4.1.2",
     "gulp-uglify": "^3.0.0",
     "gulp-webpack": "^1.5.0",
+    "node-normalize-scss": "^3.0.0",
     "uglifyjs-webpack-plugin": "^1.0.0-beta.2",
     "webpack": "^3.10.0"
   },

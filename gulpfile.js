@@ -29,6 +29,7 @@ const imagemin = require('gulp-imagemin');
 const svgSprite = require("gulp-svg-sprites");
 
 
+
 const paths =  {
   root: './build', //корень проекта
   templates: {
@@ -73,7 +74,7 @@ function styles() {
     .pipe(plumber()) //для того что бы при ошибке в написании слежение не останавливалось
     .pipe(sourcemaps.init()) // создается карта
     .pipe(sassGlob()) // для упрощенного прописывания имортов (все файлы в папке!)
-    .pipe(sass({ outputStyle: 'compressed' })) //  компиляция
+    .pipe(sass({outputStyle: 'compressed', includePaths: require('node-normalize-scss').includePaths})) //  компиляция
     .pipe(autoprefixer()) //поддержка браузеров
     .pipe(groupMediaQueries()) // группирование медиазапросов
     .pipe(cleanCSS()) // минификация
@@ -127,9 +128,9 @@ function server() {
 
 // webpack
 function scripts() {
-  return gulp.src('src/scripts/app.js')
-      .pipe(gulpWebpack(webpackConfig, webpack)) 
-      .pipe(gulp.dest(paths.scripts.dest));
+  return gulp.src(paths.scripts.src)
+    .pipe(gulpWebpack(webpackConfig, webpack))
+    .pipe(gulp.dest(paths.scripts.dest))
 }
 
 exports.templates = templates;
@@ -138,6 +139,8 @@ exports.clean = clean;
 exports.images = images;
 exports.svg = svg;
 exports.fonts = fonts;
+exports.scripts = scripts;
+
 
 
 gulp.task('default', gulp.series(
