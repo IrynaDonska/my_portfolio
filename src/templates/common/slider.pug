@@ -1,8 +1,32 @@
-.container
-    ul#slides
-        li.slide.showing
-        li.slide
-        li.slide
-    .buttons
-        button.controls#previous &lt;
-        button.controls#next &gt;
+include ./_mixings.pug
+
+.slider
+    .slider__column
+        .slider__description
+            +slide-info('slider', [
+                        {
+                            "name": "Сайт школы онлайн образования",  
+                            "technologies": "HTML , CSS, JAVASCRIPT", 
+                            "link": "1"
+                        }, 
+                        {
+                            "name": "Сайт школы онлайн ",  
+                            "technologies": "HTML", 
+                            "link": "2"
+                        }, 
+                        {
+                            "name": "Сайт школы ",  
+                            "technologies": "CSS", 
+                            "link": "3"
+                        }
+                    ]
+    )
+    .slider__column
+        .slider__pages
+            ul.slides#slides
+                li.slide.showing
+                li.slide
+                li.slide
+            .buttons
+                button.controls#previous &lt;
+                button.controls#next &gt;

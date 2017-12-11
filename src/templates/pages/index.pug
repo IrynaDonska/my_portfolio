@@ -1,13 +1,42 @@
 extends ../template
+include ../common/_mixings.pug
+
 
 block variables
     - var title = 'Добро пожаловать'
+    - var script = '/assets/scripts/js/index.js'
+    - var titleItsMe = 'БЛОГ'
+    - var descriptionItsMe = 'Статьи которые я написала'
 
 block content
-    h1 Главная
-    form
-        label(for="email") email
-        input(name="email" id="email")
-        label(for="password") password
-        input(name="password" id="password")
-        button Войти
+    section.section.section_welcome
+        .welcome-block
+            .welcome
+                include ../common/its-me-circle.pug
+                +social('social', [{"text": "vk", "link": "https://vk.com/iryyysik"}, {"text": "github", "link": "https://github.com/IrynaDonska"}, {"text": "in", "link": "#"}])
+                +nav('nav', [{"text": "Мои работы", "link": "my-works.html"}, {"text": "Обо мне", "link": "about.html"}, {"text": "Блог", "link": "blog.html"}])
+            .autorization
+                .title.title_big.title_autorization Авторизация
+                form.form-autorization
+                    .form-autorization__row 
+                        input.form-autorization__input(id="login" placeholder="Логин")
+                    .form-autorization__row
+                        input.form-autorization__input(id="password" type="password" placeholder="Пароль")
+                    .form-autorization__row
+                        input.form-autorization__input-person.visuallyhidden(type="checkbox" name="person" id="person" value="1")
+                        label.form-autorization__person(for="person") Я человек
+                    .form-autorization__row
+                        .form-autorization__title Вы точно не робот?
+                        .form-autorization__answer
+                            input.form-autorization__input-person-circle.visuallyhidden(type="radio" name="you-person" id="yes-person" value="Да")
+                            label.form-autorization__answer(for="yes-person") Да
+                            input.form-autorization__input-person-circle.visuallyhidden(type="radio" name="you-person" id="no-person" value="Не уверен")
+                            label.form-autorization__answer(for="no-person") Не уверен
+                    .form-autorization__row
+                        a.form-autorization__button На главную
+                        a.form-autorization__button Войти
+            a.autorization-button Авторизоваться
+            p.made-by-text © Ирина Донская | Создано с любовью в LoftSchool | 2017
+               
+    
+    

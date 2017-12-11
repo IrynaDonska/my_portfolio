@@ -1,0 +1,13 @@
+include ./_mixings.pug
+
+header.header
+    .container.container_header
+        .header-content
+            .header__column
+                +social('social', [{"text": "vk", "link": "https://vk.com/iryyysik"}, {"text": "github", "link": "https://github.com/IrynaDonska"}, {"text": "in", "link": "#"}])
+            .header__column
+                .menu-logo
+                    svg.menu__img
+                        use(xlink:href=`./images/sprite-svg/svg/symbols.svg#hamburger`)
+                .hidden-menu
+                    +nav('hidden-menu', [{"text": "Мои работы", "link": "my-works.html"}, {"text": "Обо мне", "link": "about.html"}, {"text": "Блог", "link": "blog.html"}, {"text": "Авторизация", "link": "#"}])

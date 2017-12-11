@@ -41,7 +41,7 @@ const paths =  {
     dest: 'build/assets/styles/'
   },
   images: {
-    src: 'src/images/jpg-png/*.*',
+    src: 'src/images/jpg-png/**/*.*',
     dest: 'build/assets/images/'
   },
   svg: {
