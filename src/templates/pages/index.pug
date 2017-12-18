@@ -5,38 +5,44 @@ include ../common/_mixings.pug
 block variables
     - var title = 'Добро пожаловать'
     - var script = '/assets/scripts/js/index.js'
-    - var titleItsMe = 'БЛОГ'
-    - var descriptionItsMe = 'Статьи которые я написала'
+    - var titleItsMe = 'Ирина Донская'
+    - var descriptionItsMe = 'Личный сайт веб разработчика'
 
 block content
     section.section.section_welcome
         .welcome-block
-            .welcome
+            .welcome-block__welcome
                 include ../common/its-me-circle.pug
                 +social('social', [{"text": "vk", "link": "https://vk.com/iryyysik"}, {"text": "github", "link": "https://github.com/IrynaDonska"}, {"text": "in", "link": "#"}])
                 +nav('nav', [{"text": "Мои работы", "link": "my-works.html"}, {"text": "Обо мне", "link": "about.html"}, {"text": "Блог", "link": "blog.html"}])
-            .autorization
-                .title.title_big.title_autorization Авторизация
+            .welcome-block__autorization
+                .title.title_small.title_autorization Авторизуйтесь
                 form.form-autorization
-                    .form-autorization__row 
-                        input.form-autorization__input(id="login" placeholder="Логин")
                     .form-autorization__row
+                        span.form-autorization__img
+                            svg.form-autorization__icon
+                                use(xlink:href=`./assets/images/sprite-svg/svg/symbols.svg#login`) 
+                        input.form-autorization__input(id="login" placeholder="Логин" type="text")
+                    .form-autorization__row
+                        span.form-autorization__img
+                            svg.form-autorization__icon
+                                use(xlink:href=`./assets/images/sprite-svg/svg/symbols.svg#password`)     
                         input.form-autorization__input(id="password" type="password" placeholder="Пароль")
                     .form-autorization__row
-                        input.form-autorization__input-person.visuallyhidden(type="checkbox" name="person" id="person" value="1")
-                        label.form-autorization__person(for="person") Я человек
+                        input.form-autorization__input-person.visuallyHidden(type="checkbox" name="person" id="person" value="1")
+                        label.form-autorization__answer.form-autorization__answer_person(for="person") Я человек
                     .form-autorization__row
-                        .form-autorization__title Вы точно не робот?
-                        .form-autorization__answer
-                            input.form-autorization__input-person-circle.visuallyhidden(type="radio" name="you-person" id="yes-person" value="Да")
-                            label.form-autorization__answer(for="yes-person") Да
-                            input.form-autorization__input-person-circle.visuallyhidden(type="radio" name="you-person" id="no-person" value="Не уверен")
-                            label.form-autorization__answer(for="no-person") Не уверен
+                        .form-autorization__question-robot Вы точно не робот?
+                        .form-autorization__robot
+                            input.form-autorization__input-person-circle.visuallyHidden(type="radio" name="you-person" id="yes-person" value="Да")
+                            label.form-autorization__answer.form-autorization__answer_robot(for="yes-person") Да
+                            input.form-autorization__input-person-circle.visuallyHidden(type="radio" name="you-person" id="no-person" value="Не уверен")
+                            label.form-autorization__answer.form-autorization__answer_robot(for="no-person") Не уверен
                     .form-autorization__row
-                        a.form-autorization__button На главную
-                        a.form-autorization__button Войти
-            a.autorization-button Авторизоваться
-            p.made-by-text © Ирина Донская | Создано с любовью в LoftSchool | 2017
-               
-    
-    
+                        button.form-autorization__button На главную
+                        button.form-autorization__button Войти
+            .droptitle-autorization
+                .droptitle-autorization__triangle
+                .droptitle-autorization__text Вы не ввели логин                
+        a.autorization-button Авторизоваться
+        p.made-by-text © Ирина Донская | Создано с любовью в LoftSchool | 2017         

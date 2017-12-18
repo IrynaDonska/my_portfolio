@@ -1,0 +1,148 @@
+.social__img {
+    fill: $grey;
+    width: rem(32);
+    height: rem(22);
+    cursor: pointer;
+
+    &:hover {
+        fill: $green-light;
+        transition: 1s; 
+    }
+}
+
+.hamburger__img {
+    fill: $grey;
+    width: rem(42);
+    height: rem(40);
+    cursor: pointer;
+}
+
+.hidden-menu__close {
+    fill: $white;
+    width: rem(42);
+    height: rem(40);
+    cursor: pointer;
+    position: absolute;
+    top: rem(30);
+    right: 0;
+    
+}
+
+.form-autorization__icon{
+    fill: #c4cbcd;
+    width: rem(15);
+    height: rem(15); 
+}
+
+.arrow-down{
+    position: absolute;
+    bottom: 15%;
+    left: 49.2%;
+    fill: #c2d3ca;
+    width: rem(25);
+    height: rem(15);
+    cursor: pointer;
+    z-index: 2;
+
+    &:hover {
+        fill: $white;
+        transition: 1s; 
+    }
+}
+
+.contact__icon {
+    fill: $green-light;
+    width: rem(22);
+    height: rem(22);
+}
+
+.arrow-up {
+    position: absolute;
+    fill: #c2d3ca;
+    width: rem(25);
+    height: rem(15);
+    cursor: pointer;
+    bottom: rem(35);
+    left:50%;
+    transform:translate(-50%,rem(-35));
+    
+    
+    &:hover {
+        fill: $white;
+        transition: 1s; 
+    }
+}
+
+.controls__icon {
+    fill: $white;;
+    width: rem(40);
+    height: rem(30);
+    cursor: pointer;
+    position: absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+    z-index: 2;
+}
+
+
+.works_header {
+    width: 100%;
+    position: absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+    fill: #93c42e;
+    opacity: 0.2;  
+}
+
+.about_header {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+    fill: #93c42e;
+    opacity: 0.2;  
+
+}
+
+.portfolio_header {
+    width: 70%;
+    height: 100%;
+    position: absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+    fill: $white;
+    opacity: 0.2;   
+}
+
+.portfolio_header-none {
+    display: none; 
+}
+
+.blog_header {
+    width: 70%;
+    height: 100%;
+    position: absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+    fill: $white;
+    opacity: 0.2;   
+}
+
+.blog_header-none {
+    display: none; 
+}
+
+
+.slider__site-button-img {
+    fill: $white;
+    width: rem(22);
+    height: rem(22);
+    margin-right: rem(10);
+}
+

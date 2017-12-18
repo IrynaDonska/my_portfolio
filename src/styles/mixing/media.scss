@@ -1,0 +1,24 @@
+@mixin big-screen {
+    @media screen and (max-width: $big-screen) {
+        @content;
+    }
+}
+
+ 
+@mixin small-screen {
+    @media screen and (max-width: $small-screen) {
+        @content;
+    }
+}
+
+@mixin ipad {
+    @media screen and  (max-width: $ipad) {
+        @content;
+    }
+}
+
+@mixin iphone {
+    @media screen and  (max-width: $iphone) {
+        @content;
+    }
+}

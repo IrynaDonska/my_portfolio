@@ -1,0 +1,87 @@
+button, input, textarea {
+    outline: none;
+    border: rem(1) solid transparent;
+    
+    &:active{
+        outline: none;
+    }
+}
+
+input:focus,   textarea:focus {
+    border: rem(1) solid $green-light;
+}
+
+button.form-autorization__button:focus{
+    background-color: $green-dark;
+}
+
+
+.title {
+    
+    &_big {
+        @include big-title;
+        position: relative;
+        text-align: center;
+        margin-bottom: rem(60);
+        
+
+        &:after {
+            content: "";
+            display: block;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: rem(90);
+            height: rem(3);
+            background-color: $dark;
+            right: 0;
+            margin: rem(-30) auto;
+
+        }
+    }
+
+
+    &_small {
+        @include small-title;
+        position: relative;
+        text-align: center;
+        margin-bottom: rem(60);
+        
+        &:after {
+            content: "" ;
+            display: block;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            width: rem(90);
+            height: rem(3);
+            background-color: $light-dark;
+            margin: rem(-30) auto;
+
+        }
+    }
+}
+
+
+.title-line {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .line {
+        width: rem(90);
+        height: rem(3);
+        background-color: $white;
+    }  
+}
+
+.made-by-text {
+    font-family: 'robotoregular';
+    font-weight: normal;
+    font-style: normal;
+    font-size: rem(16);
+    color: $white ;
+}
+
+

@@ -1,0 +1,374 @@
+//СЕКЦИЯ МОИ РАБОТЫ
+.section_my-work {
+    width: 100%;
+    min-height: 100%;
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: 1fr; 
+    grid-template-areas: 
+      "content"
+}
+
+.my-work-content {
+    grid-area: content;
+    display: flex;
+    flex-direction: column;
+}
+.slider{
+    height: 100%;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-template-rows: 75% 25%;
+    grid-template-areas: 
+      "info display"
+      "info btns";
+}
+
+.slider {
+    &__description {
+        background-color: #ebefe2;
+        grid-area: info ;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+    }
+
+    &__item {
+        display: none;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: rem(320);
+
+    } 
+
+    &__site-technologies {
+        font-family: 'robotomedium';
+        font-weight: normal;
+        font-style: normal;
+        font-size: rem(16);
+        color: $green-dark;
+        margin-bottom: rem(60);
+
+    }
+
+    &__site-button {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+        width: rem(200);
+        height: rem(45);
+        background-color: $green-light;
+        border-radius: rem(20);
+        font-family: 'robotomedium';
+        font-weight: normal;
+        font-style: normal;
+        font-size: rem(16);
+        color: $white;
+        
+        &:hover {
+            background-color: $green-dark; 
+            transition: 1s;
+        }
+
+    }
+
+    .slider__item_active {
+        display: flex;
+    }
+
+}
+
+
+.slider__pages {
+    background-color: #e1e4d7;
+    grid-area: display;
+    position: relative;
+
+
+}
+
+.pages {
+
+    &__list {
+        width: 100%;
+        height: 100%; 
+    }
+    
+    &__item {
+        width: 100%;
+        height: 100%;  
+        display: none;
+        justify-content: center;
+        align-items: center;
+
+
+        &_showing {
+            display: flex;
+            
+        }
+    }
+
+    &__item-img {
+        max-width: 66%;
+        max-height: 76%;
+        //position: absolute;
+        //top: 50%;
+        //left: 50%;
+        //transform:translate(-50%,-50%);
+
+    }
+}
+
+
+.buttons {
+    grid-area: btns;
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-template-areas: 
+      "btn-prev btn-next"    
+}
+
+.controls {
+    width: 100%;
+    height: 100%;  
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    cursor: pointer;
+
+    &::after {
+        content: "";
+        display: block;
+        position: absolute;
+        background: rgba(#93998d, .7);
+        top: rem(0);
+        left: rem(0);
+        right: rem(0);
+        bottom: rem(0);
+        height: 100%;
+        width: 100%;
+        opacity: 1;
+    }
+
+    &:hover::after {
+        opacity: 0;
+        transition: 1s;
+
+    }
+
+    &:hover .controls__icon {
+        display: none;
+        transition: 1s;
+    }
+}
+
+.controls_previous {
+    background-color: #bdbebd;
+    grid-area: btn-prev;
+}
+
+.controls_next {
+    background-color: #bdbebd;
+    grid-area: btn-next;
+}
+
+.title-my-works {
+    padding-top: rem(70);
+    position: relative;
+    
+    .title {
+        z-index: 10;
+    }
+
+}
+
+
+
+//CЕКЦИЯ ОТЗЫВЫ
+.section_feedback {
+    background: url("../images/jpg-png/my-work.jpg") no-repeat center center;
+    background-size:  cover;
+    width: 100%;
+    min-height: 100%;
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: 1fr rem(190);
+    grid-template-areas: 
+      "content"
+      "footer"
+} 
+.container_feedback {
+    grid-area: content;
+    position: relative;
+
+}
+
+.feedback {
+    &__list{
+        margin-bottom: rem(70);
+        display: flex;
+        flex-direction: row;
+        justify-content:center ;
+        align-items: center;
+    }
+
+    &__item {
+        display: flex;
+        flex-direction: column;
+        justify-content:center ;
+        align-items: center;
+        width: rem(380);
+        margin-right: rem(20);
+        font-family: 'robotoitalic';
+        font-weight: normal;
+        font-style: normal;
+        font-size: rem(16);
+        line-height: 1.5em;
+        color: #5d5a55;
+
+        &:last-child {
+            margin-right: 0;
+        }
+
+        
+        &-photo {
+            background-image: center center no-repeat;
+            width: rem(80);
+            height: rem(80);
+            border-radius: 50%;
+            background-size:  cover;
+            margin-bottom: rem(20);
+            
+            &-img {
+                width: rem(80);
+                height: rem(80);
+                border-radius: 50%; 
+            }
+        }
+
+        &-description {
+            line-height: 1.625em;
+            margin-bottom: rem(30);
+        }
+
+        &-name {
+            font-family: 'robotobold_italic';
+            margin-bottom: rem(10);
+            color: $green-dark;
+        }
+
+        &-position {
+            color: $dark;
+        }
+
+    }
+
+    
+}
+
+.communication-content {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    margin-bottom: rem(160);
+
+    .communication {
+        width: rem(380);
+        height: rem(460);
+        background-color: rgba(218, 219, 214, 0.6);
+        border-radius: rem(5);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        overflow: hidden; 
+    }
+    
+    .form-communication {
+    
+        &__row {
+            margin-bottom: rem(20);
+           
+
+            &:nth-child(3) {
+                margin-bottom: rem(55);
+
+            }
+
+            &:last-child {
+                display: flex;
+                flex-direction: row;
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                width: 100%;
+                margin-bottom: 0;
+
+            }
+
+ 
+        }
+ 
+        &__input {
+            width: rem(295);
+            height: rem(45);
+            padding: rem(15) rem(20);
+            border-radius: rem(23);
+            cursor: pointer;
+        }
+ 
+        &__textarea {
+            width: rem(295);
+            height: rem(140);
+            padding: rem(15) rem(20);
+            border-radius: rem(23);
+            cursor: pointer;
+            resize: none;
+        }
+
+        &__button {
+            font-family: 'robotomedium';
+            color: $white;
+            font-size: rem(16);
+            width:  50%;
+            line-height: 2.81em;
+            background-color: $green-light;
+            opacity: 0.85;
+            cursor: pointer;
+            border-right:  rem(3) solid #dee3e7;
+        
+            
+            &:last-child {
+                border-right:  none; 
+            }
+            
+            &:hover {
+                background-color: $green-dark; 
+                transition: 1s;
+            }
+
+        }
+    }
+}
+
+.title-about {
+    padding-top: rem(70);
+    position: relative;
+
+    .title {
+        z-index: 10;
+    }
+}
+
+
+
+
+
+

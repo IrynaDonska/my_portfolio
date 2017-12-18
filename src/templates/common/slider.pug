@@ -1,32 +1,52 @@
 include ./_mixings.pug
 
 .slider
-    .slider__column
-        .slider__description
-            +slide-info('slider', [
-                        {
-                            "name": "Сайт школы онлайн образования",  
-                            "technologies": "HTML , CSS, JAVASCRIPT", 
-                            "link": "1"
-                        }, 
-                        {
-                            "name": "Сайт школы онлайн ",  
-                            "technologies": "HTML", 
-                            "link": "2"
-                        }, 
-                        {
-                            "name": "Сайт школы ",  
-                            "technologies": "CSS", 
-                            "link": "3"
-                        }
-                    ]
-    )
-    .slider__column
-        .slider__pages
-            ul.slides#slides
-                li.slide.showing
-                li.slide
-                li.slide
-            .buttons
-                button.controls#previous &lt;
-                button.controls#next &gt;
+    .slider__description
+        ul.slider__list
+            li.slider__item.slider__item_active
+                .title_small.slider__site-name Сайт школы онлайн образования
+                .slider__site-technologies HTML , CSS, JAVASCRIPT
+                a.slider__site-button(href="1") 
+                    svg.slider__site-button-img
+                        use(xlink:href="./assets/images/sprite-svg/svg/symbols.svg#link")
+                    .slider__site-button-text Перейти на сайт
+            li.slider__item
+                .title_small.slider__site-name Сайт школы онлайн 
+                .slider__site-technologies HTML , CSS, JAVASCRIPT
+                a.slider__site-button(href="2") 
+                    svg.slider__site-button-img
+                        use(xlink:href="./assets/images/sprite-svg/svg/symbols.svg#link")
+                    .slider__site-button-text Перейти на сайт
+            li.slider__item
+                .title_small.slider__site-name Сайт школы 
+                .slider__site-technologies HTML , CSS, JAVASCRIPT
+                a.slider__site-button(href="3") 
+                    svg.slider__site-button-img
+                        use(xlink:href="./assets/images/sprite-svg/svg/symbols.svg#link")
+                    .slider__site-button-text Перейти на сайт
+            li.slider__item
+                .title_small.slider__site-name Сайт школ 
+                .slider__site-technologies HTML , CSS, JAVASCRIPT
+                a.slider__site-button(href="4") 
+                    svg.slider__site-button-img
+                        use(xlink:href="./assets/images/sprite-svg/svg/symbols.svg#link")
+                    .slider__site-button-text Перейти на сайт
+    .slider__pages
+        ul.pages__list#pages
+            li.pages__item
+                img.pages__item-img(src="./assets/images/jpg-png/my-works/work-2.png")
+            li.pages__item.pages__item_showing
+                img.pages__item-img(src="./assets/images/jpg-png/my-works/work-1.png")
+            li.pages__item
+                img.pages__item-img(src="./assets/images/jpg-png/my-works/work-3.png")
+            li.pages__item
+                img.pages__item-img(src="./assets/images/jpg-png/my-works/work-4.png")
+    .buttons
+        .controls.controls_next#next 
+            svg.controls__icon
+                use(xlink:href=`./assets/images/sprite-svg/svg/symbols.svg#portf_arrow_up`)
+            img.pages__item-img(src="./assets/images/jpg-png/my-works/work-2.png")
+        .controls.controls_previous#previous 
+            svg.controls__icon
+                use(xlink:href=`./assets/images/sprite-svg/svg/symbols.svg#portf_arrow_down`)
+            img.pages__item-img(src="./assets/images/jpg-png/my-works/work-3.png")

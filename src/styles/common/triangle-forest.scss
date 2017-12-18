@@ -1,0 +1,38 @@
+.section_triangle {
+    background: url("../images/jpg-png/water.jpg") no-repeat center center;
+    background-size:  cover;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    //height: 100%;  
+}
+
+.container_triangle {
+    text-align: center;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+} 
+
+.triangle-content {
+    z-index: 10;
+}
+
+
+.triangle-box {
+    position: absolute;
+    bottom: rem(-6);
+    left: 0;
+    width: 100%;
+}
+
+.triangle {
+    fill: $white;
+}
+
+.triangle__left_about{
+    fill: #ebefe2;
+}
+

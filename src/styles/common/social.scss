@@ -1,0 +1,11 @@
+.social {
+    &__list {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+
+    &__item {
+      margin-right: rem(27);
+    }
+}

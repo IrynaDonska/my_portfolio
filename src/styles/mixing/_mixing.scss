@@ -1,0 +1,24 @@
+@function rem($px) {
+    @return ($px/16)+rem;
+}
+
+
+@mixin big-title {
+    font-family: 'sansus_webissimoregular';
+    font-weight: normal;
+    font-style: normal;
+    font-size: rem(63);
+    line-height: 1.11116em;
+    text-transform: uppercase;
+    color: $dark; 
+}
+
+@mixin small-title {
+    font-family: 'sansus_webissimoregular';
+    font-weight: normal;
+    font-style: normal;
+    font-size: rem(35);
+    line-height: 1.1428em;
+    text-transform: uppercase;
+    color: $light-dark;
+}

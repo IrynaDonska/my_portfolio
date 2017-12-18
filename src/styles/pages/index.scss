@@ -1,0 +1,338 @@
+.section_welcome {
+    background: url("../images/jpg-png/water.jpg") no-repeat center center;
+    background-size:  cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    height: 100%;
+    
+
+    .made-by-text {
+        position: absolute;
+        bottom: rem(40);
+    }
+}
+
+
+.welcome-block {
+    width: rem(380);
+    height: rem(395);
+    background-color: rgba(18, 38, 32, 0.6);
+    border-radius: rem(3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+
+}
+
+.welcome-block__welcome{
+    margin-bottom: rem(40);
+    display: block;
+    
+
+    .social {
+        display: flex;
+        justify-content: center;
+        align-self: center;
+        margin-top: rem(30);
+
+
+        &__item{
+            &:last-child{
+                margin-right: 0;
+            }
+        }
+    }
+
+    .nav {
+        width: rem(380);
+
+        &__list{
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            display: flex;
+            width: 100%;
+
+        }
+
+       
+        &__link {
+            font-family: 'robotomedium';
+            font-weight: normal;
+            font-style: normal;
+            font-size: rem(16);
+            color: $white;
+            background-color: $green-light;
+            opacity: 0.85;
+            cursor: pointer;
+            padding: rem(14) rem(30);
+            border-right:  rem(3) solid #dee3e7;
+            text-align: center;
+
+            &:last-child {
+                border-right:  none;
+                padding: rem(14) rem(31.5);  
+            }
+            
+            &:hover {
+                background-color: $green-dark; 
+                transition: 1s;
+            }
+        }
+
+        
+    }
+
+}
+
+.welcome-block__autorization {
+    display: none;
+
+
+    .title_autorization {
+        color: $white;
+        &::after {
+            background-color: $white;
+        } 
+    }
+
+    .form-autorization {
+        margin-bottom: rem(60);
+        font-family: 'robotoregular';
+        font-weight: normal;
+        font-style: normal;
+        font-size: rem(16);
+        line-height: 1.5em;
+        color: $white;
+
+        &__question-robot {
+            font-family: 'robotobold';
+        }
+
+        &__row {
+            margin-bottom: rem(15);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            &:nth-child(4) {
+               display: flex;
+               flex-direction: column;
+
+            }
+
+            &:last-child {
+                margin-bottom: 0;
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                width: 100%;
+            } 
+        }
+
+        &__img {
+            width: rem(45);
+            height: rem(45);
+            background-color:  #f0efe9;
+            border-radius:  rem(23) 0 0 rem(23);
+            
+        }
+
+        &__icon {
+            margin-top: rem(15);
+        }
+
+        &__input {
+            width: rem(295);
+            height: rem(45);
+            padding: rem(15) rem(20);
+            border-radius: 0 rem(23) rem(23) 0;
+            cursor: pointer;
+        }
+
+        &__answer {
+            cursor: pointer;
+            position: relative;
+            padding-left: rem(30);
+            cursor: pointer;
+
+            &_person {
+                
+                &::before {
+                    position: absolute;
+                    content: "";
+                    border-radius: rem(1);
+                    width: rem(20);
+                    height: rem(20);
+                    background-color: $white;
+                    left: 0;
+                    top: rem(2);                                        
+                }
+
+
+                &:after {
+                    position: absolute;
+                    display: block;
+                    color: $white;
+                    top: rem(0);
+                    left: rem(0); 
+                    width: rem(20);
+                    height: rem(20);
+                }
+            }
+
+            &_robot {
+                margin-right: rem(40);
+
+                &:last-child {
+                    margin-right: 0; 
+                }
+                &::before {
+                    position: absolute;
+                    content: "";
+                    border-radius: 50%;
+                    width: rem(20);
+                    height: rem(20);
+                    background-color: $white;
+                    left: 0;
+                    top: rem(2);       
+                }
+
+                &:after {
+                    position: absolute;
+                    display: block;
+                    background-color: $green-light;
+                    top: rem(8);
+                    left: rem(6); 
+                    width: rem(8);
+                    height: rem(8);
+                    border-radius: 50%
+
+                }
+            }
+        }
+
+        &__button {
+            font-family: 'robotomedium';
+            color: $white;
+            font-size: rem(16);
+            width:  50%;
+            line-height: 2.81em;
+            background-color: $green-light;
+            opacity: 0.85;
+            cursor: pointer;
+            border-right:  rem(3) solid #dee3e7;
+
+
+            &:last-child {
+                border-right:  none; 
+            }
+            
+            &:hover {
+                background-color: $green-dark; 
+                transition: 1s;
+            }
+
+        }
+
+    }
+
+}
+
+.autorization-button {
+    width: rem(180);
+    height: rem(45);
+    border: rem(2) solid $white;
+    border-radius: rem(20);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'robotomedium';
+    font-weight: normal;
+    font-style: normal;
+    font-size: rem(16);
+    cursor: pointer;
+    color: $white;
+    position: absolute;
+    top: rem(25);
+    right: 5.55%;
+
+    &:hover {
+        background-color:  $green-dark;
+        border-color: #729e19;
+        transition: 1s;
+
+    }
+
+}
+
+
+//Выпадающий блок при не введенном пароле и логине
+.droptitle-autorization {
+    position: absolute;
+    display: block;
+    width: rem(185);
+    padding: rem(15);
+	text-align: center;
+	border-radius:  rem(3);
+	top: rem(167);
+    opacity: 0;
+    left:  rem(-9999); // left:rem(65) //top: rem(225)(для пароля) //opacity: 1;
+	transition: opacity 1s;
+    z-index: 10;
+    font-family: 'robotomedium';
+    font-weight: normal;
+    font-style: normal;
+    font-size: rem(16);
+    color: $white;
+    background: $red;
+
+
+    &__triangle {
+        content: "";
+        display: block;
+        width: 0;
+        height: 0;
+        border: rem(10) solid transparent;
+        border-top-width: 0;
+        border-bottom-color: $red;
+        position: absolute;
+        bottom: 100%;
+        right: 42.3%;
+        margin-bottom: rem(-3);
+    }
+
+}
+
+.form-autorization__answer:hover {
+    color:  $green-light;
+    transition: 1s;
+
+}
+
+//Работа с радиокнопками и чекбоксом
+.form-autorization__input-person:checked + .form-autorization__answer_person:before{
+   background-color: $green-light;  
+}
+
+.form-autorization__input-person:checked + .form-autorization__answer_person:after {
+    content: "\2714";
+}
+
+.form-autorization__input-person:checked + .form-autorization__answer {
+    color: $green-light;
+}
+
+.form-autorization__input-person-circle:checked + .form-autorization__answer_robot:after {
+    content: "";
+}
+
+.form-autorization__input-person-circle:checked + .form-autorization__answer {
+    color: $green-light;
+
+}

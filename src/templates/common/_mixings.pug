@@ -1,40 +1,41 @@
 mixin nav(className, items)
     nav.nav
-        ul(class=`${className}__list`)
+        div(class=`${className}__list`)
             each item in items
-                li(class=`${className}__item`)
-                    a(class=`${className}__link` href=`${item.link}`)= item.text
+                a(class=`${className}__link` href=`${item.link}`)= item.text
 
 mixin social(className, socials)
     .social
         ul(class=`${className}__list`)
             each social in socials
                 li(class=`${className}__item`)
-                    a(class=`${className}__link.${className}__link_${social.text}` href=`${social.link}`)
+                    a(class=`${className}__link.${className}__link_${social.text}` href=`${social.link}` target="_blank")
                         svg(class=`${className}__img`)
-                            use(xlink:href=`./images/sprite-svg/svg/symbols.svg#${social.text}`)
+                            use(xlink:href=`./assets/images/sprite-svg/svg/symbols.svg#${social.text}`)
+
 
 mixin feedback(className, feedbacks)
-    .feedback-block
+    .feedback
         ul(class=`${className}__list`)
             each feedback in feedbacks
                 li(class=`${className}__item`)
                     div(class=`${className}__item-photo` style=`${feedback.photo}`) 
-                        img(class=`${className}__item-photo-img.visuallyHidden` src=`${feedback.src}`, alt=`${feedback.name}`)
+                        img.visuallyHidden(class=`${className}__item-photo-img` src=`${feedback.src}`, alt=`${feedback.name}`)
                     p(class=`${className}__item-description`)= feedback.description
-                    span(class=`${className}__item-name`)= feedback.name
-                    span(class=`${className}__item-position`)= feedback.position
+                    div(class=`${className}__item-name`)= feedback.name
+                    div(class=`${className}__item-position`)= feedback.position
 
 mixin slide-info(className, sliders)
     ul(class=`${className}__list`)
         each slider in sliders
             li(class=`${className}__item`)
-                div(class=`${className}__site-name`)= slider.name
+                div.title_small(class=`${className}__site-name`)= slider.name
                 div(class=`${className}__site-technologies`)= slider.technologies
                 a(class=`${className}__site-button` href=`${slider.link}`)
-                    div(class=`${className}__site-button-text`) Перейти на сайт
                     svg(class=`${className}__site-button-img`)
-                        use(xlink:href=`./images/sprite-svg/svg/symbols.svg#link`)
+                        use(xlink:href=`./assets/images/sprite-svg/svg/symbols.svg#link`)
+                    div(class=`${className}__site-button-text`) Перейти на сайт
+                    
 
 mixin blog-main-title(className, titles)
     ul(class=`${className}__list`)
@@ -46,8 +47,9 @@ mixin blog-articles(className, articles)
     ul(class=`${className}__list`)
         each article in articles
             li(class=`${className}__item.`)
-                div(class=`${className}__name`).title_small= article.name
-                div(class=`${className}__date`)= article.date
-                p(class=`${className}__text`)= article.text
-                div(class=`${className}__picture` style="${article.style}")
-                    img(class=`${className}__picture-img`.visuallyHidden src="${article.src}")           
+                article
+                    div(class=`${className}__name`).title_small= article.name
+                    div(class=`${className}__date`)= article.date
+                    p(class=`${className}__text`)= article.text
+                    div(class=`${className}__picture` style=`${article.style}`)
+                        img(class=`${className}__picture-img`.visuallyHidden src=`${article.src}`)           

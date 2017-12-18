@@ -1,0 +1,41 @@
+.its-me {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: $white;
+    
+    &__photo{
+        width: rem(140);
+        height: rem(140);
+        border-radius: 50%;
+        background-size:  cover;
+        margin-bottom: rem(20);
+
+        &-img {
+            width: rem(140);
+            height: rem(140);
+            border-radius: 50%;
+            margin-bottom: rem(20); 
+        }
+    }
+
+   
+
+    &__name {
+        font-family: 'robotomedium';
+        font-weight: normal;
+        font-style: normal;
+        font-size: rem(28);
+        line-height: 1.2142em;
+    }
+
+    &__description {
+        font-family: 'robotoregular';
+        font-weight: normal;
+        font-style: normal;
+        font-size: rem(16);
+        line-height: 1.5em;
+        opacity: 1;
+    }
+}

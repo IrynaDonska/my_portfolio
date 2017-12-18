@@ -1,0 +1,43 @@
+html {
+    font-size: 16px;
+}
+
+body, html {
+    height: 100%;
+}
+
+body {
+    margin: rem(0);
+    padding: rem(0);
+    font-size: rem(16);
+    font-family: 'Roboto', Arial, Helvetica, sans-serif;
+    line-height: 1.42;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+*, *::before, *::after { 
+    box-sizing: border-box; 
+}
+
+.visuallyHidden {
+	position: absolute;
+	overflow: hidden;
+	clip: rect(0 0 0 0);
+	margin: rem(-1);
+	padding: rem(0);
+    border: rem(0);
+}
+
+ul {
+    padding: rem(0);
+    margin: rem(0);
+    li {
+      list-style: none;
+    }
+}
+
+p {
+    padding: rem(0);
+    margin: rem(0);
+}

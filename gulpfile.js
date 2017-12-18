@@ -26,7 +26,7 @@ const browserSync = require('browser-sync').create();
 
 const imagemin = require('gulp-imagemin');
 
-const svgSprite = require("gulp-svg-sprites");
+const svgSprite = require('gulp-svg-sprites');
 
 
 
@@ -42,7 +42,7 @@ const paths =  {
   },
   images: {
     src: 'src/images/jpg-png/**/*.*',
-    dest: 'build/assets/images/'
+    dest: 'build/assets/images/jpg-png'
   },
   svg: {
     src: 'src/images/svg/*.svg',
@@ -148,5 +148,3 @@ gulp.task('default', gulp.series(
   gulp.parallel(styles, templates, images, svg, fonts, scripts),
   gulp.parallel(watch, server)
 ));
-
-

@@ -1,3 +1,4 @@
-const slider = require('../common/progressbar.js');
-const $ = require('jquery');
+const progressBar = require('../common/progressbar.js');
+
+progressBar();
 console.log('about')

@@ -1,0 +1,124 @@
+.footer {
+    width: 100%;
+    grid-area: footer;
+
+    &__first-row {
+        background-color: rgba(55, 62, 66, 0.85);
+        min-height: rem(150);
+        padding-top: rem(30);
+        padding-bottom: rem(30);
+        
+        .container {
+            display: flex;
+            flex-direction: row;
+            align-items: baseline;
+        }
+    }
+
+    &__second-row {
+        background-color: rgba(108, 156, 90, 0.85);
+        text-align: center;
+        min-height: rem(40);
+        padding-top: rem(10);
+        padding-bottom: rem(10);
+    }
+
+    &__column {
+        width: 33.3333%;
+        padding-left: rem(25);
+        position: relative;
+        
+        &::after {
+            content: "";
+            display: block;
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: rem(3);
+            min-height: rem(90);
+            background-color: $white;
+            opacity: 0.2;
+        }
+
+
+
+        &:first-child {
+            padding-left: 0;
+            padding-right: rem(150);  
+        }
+
+        &:last-child {
+            border-right:  none;
+            
+            &::after {
+                display: none;
+            }
+        }
+    }
+
+    
+    &__left {
+        font-family: 'robotolight';
+        font-weight: normal;
+        font-style: normal;
+        font-size: rem(16);
+        line-height: 1.5em;
+        color: $white;
+    }
+
+    &__center {
+
+        .nav {
+            margin-bottom: rem(25);
+
+            &__list {
+                display: flex;
+                flex-wrap: wrap;
+
+            }
+            
+            &__link {
+                font-family: 'robotobold';
+                font-weight: normal;
+                font-style: normal;
+                font-size: rem(16);
+                line-height: 1.5em;
+                color: $white;
+                cursor: pointer;
+                margin-right: rem(20);
+                
+
+                &:last-child {
+                    margin-right: 0;
+                }
+                
+                &:hover {
+                    color: $green-light;
+                    transition: 1s;
+                }
+            }   
+        }
+
+        .social {
+            &__img {
+                &:hover{
+                    fill: $white;
+                }
+            }
+        }
+    }
+
+    &__right {
+        font-family: 'robotolight_italic';
+        font-weight: normal;
+        font-style: normal;
+        font-size: rem(16);
+        line-height: 1.5em;
+        color: rgba(255, 255, 255, 0.5);
+
+        &-author {
+            font-family: 'robotobold_italic';
+        }
+    }
+}
+

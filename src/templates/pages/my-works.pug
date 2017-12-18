@@ -6,52 +6,57 @@ block variables
     - var script = '/assets/scripts/js/my-work.js'
     - var titleItsMe = 'Ирина Донская'
     - var descriptionItsMe = 'Личный сайт веб разработчика'
+    - var headerBlog = 'blog_header-none'
    
 
 block content
-    section.section.section_triangle
-        include ../common/triangle-forest.pug
+    include ../common/triangle-forest.pug   
     section.section.section_my-work
-        .container.container_my-work
-            .my-work-content
-                .title.title_big.title_my-works Мои работы
-                .slider-block
-                    include ../common/slider.pug
+        .my-work-content
+            .title-my-works
+                .title.title_big Мои работы
+                svg.works_header 
+                    use(xlink:href=`./assets/images/sprite-svg/svg/symbols.svg#works_header`)
+            include ../common/slider.pug  
     section.section.section_feedback
-        .feedback-content
-            .title-block
-                .title.title_big.title_feedback Что говорят обо мне
-            +feedback('feedback', [
-                {
-                    "name": "Ковальчук Дмитрий", 
-                    "photo": "background-image:url(assets/images/jpg-png/feedback/kovalchuk.jpg)", 
-                    "src": "./assets/images/jpg-png/feedback/kovalchuk.jpg", 
-                    "description": "Эта девушка проходила обучение веб-разработке не где-то, а в LoftSchool! 2 месяца только самых тяжелых испытаний и бессонных ночей!", 
-                    "position": "— основатель Loftschool"
-                }, 
-                {
-                    "name": "Сабанцев Владимир", 
-                    "photo": "background-image:url(assets/images/jpg-png/feedback/sabancev.jpg)", 
-                    "src": "./assets/images/jpg-png/feedback/sabancev.jpg", 
-                    "description": "Этот код выдержит любые испытания. Только пожалуйста, не загружается сайт на слишком старых браузерах!", 
-                    "position": "— преподаватель"
-                }, 
-                
-            ]
-    )
-            .form
-                .title.title_small.title_form Связатся со мной
-                 form
-                    .form__row
-                        label(for="name") 
-                        input.form__input(name="name" id="name" placeholder="Имя")
-                    .form__row
-                        label(for="email") 
-                        input.form__input(name="email" id="email" placeholder="email")
-                    .form__row
-                        label(for="comment") 
-                        textarea.form__input(name="comment" id="comment" placeholder="Ваше сообщение")
-                    .form__row
-                        button.form__button(type="submit") Отправить
-                        button.form__button(type="reset") Очистить
+        .container.container_feedback
+            .feedback-content
+                .title-about
+                    .title.title_big.title_feedback Что  обо мне говорят
+                    svg.about_header 
+                        use(xlink:href=`./assets/images/sprite-svg/svg/symbols.svg#about_header`)
+                +feedback('feedback', [
+                    {
+                        "name": "Ковальчук Дмитрий", 
+                        "photo": "background-image:url(assets/images/jpg-png/feedback/kovalchuk.jpg)", 
+                        "src": "./assets/images/jpg-png/feedback/kovalchuk.jpg", 
+                        "description": "Эта девушка проходила обучение веб-разработке не где-то, а в LoftSchool! 2 месяца только самых тяжелых испытаний и бессонных ночей!", 
+                        "position": "— основатель Loftschool"
+                    }, 
+                    {
+                        "name": "Сабанцев Владимир", 
+                        "photo": "background-image:url(assets/images/jpg-png/feedback/sabancev.jpg)", 
+                        "src": "./assets/images/jpg-png/feedback/sabancev.jpg", 
+                        "description": "Этот код выдержит любые испытания. Только пожалуйста, не загружается сайт на слишком старых браузерах!", 
+                        "position": "— преподаватель"
+                    }     
+                ])
+            .communication-content
+                .communication
+                    .title.title_small.title_form Связатся со мной
+                    form.form-communication
+                        .form-communication__row
+                            label(for="name") 
+                            input.form-communication__input(name="name" id="name" placeholder="Имя")
+                        .form-communication__row
+                            label(for="email") 
+                            input.form-communication__input(name="email" id="email" placeholder="email")
+                        .form-communication__row
+                            label(for="comment") 
+                            textarea.form-communication__textarea(name="comment" id="comment" placeholder="Ваше сообщение")
+                        .form-communication__row
+                            button.form-communication__button(type="submit") Отправить
+                            button.form-communication__button(type="reset") Очистить
+            svg.arrow-up 
+                use(xlink:href=`./assets/images/sprite-svg/svg/symbols.svg#portf_arrow_up`)
         include ../common/footer.pug

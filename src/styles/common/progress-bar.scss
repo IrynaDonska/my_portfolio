@@ -1,0 +1,56 @@
+.progressbar {
+    margin-top: rem(60);
+    
+
+
+
+    &__row {
+        margin-bottom: rem(40);
+
+        &:last-child {
+            margin-bottom: 0; 
+        }
+          
+    }
+
+    &__circles {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+}
+
+
+.progressbar__circle {
+    margin-right: rem(40);
+    width: rem(120);
+    height: rem(120);
+    position:relative;
+
+    &:last-child {
+        margin-right: 0;  
+    }
+}
+
+.progressbar__name {
+    font-family: 'robotomedium';
+    font-weight: normal;
+    font-style: normal;
+    font-size: rem(28);
+    line-height: 1.1428em;
+    color: $light-dark;
+    margin-bottom: rem(20);
+}
+.progressbar__circle-name {
+    font-family: 'robotomedium';
+    font-weight: normal;
+    font-style: normal;
+    font-size: rem(14);
+    line-height: 1.1428em;
+    text-align: center;
+    color: $green-dark;
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+}
