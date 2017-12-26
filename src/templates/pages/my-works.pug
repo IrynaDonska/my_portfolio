@@ -6,24 +6,24 @@ block variables
     - var script = '/assets/scripts/js/my-work.js'
     - var titleItsMe = 'Ирина Донская'
     - var descriptionItsMe = 'Личный сайт веб разработчика'
-    - var headerBlog = 'blog_header-none'
+    - var headerBlog = 'header__blog-background_none'
    
 
 block content
-    include ../common/triangle-forest.pug   
-    section.section.section_my-work
-        .my-work-content
-            .title-my-works
+    include ../common/section-header.pug   
+    section.section.my-works
+        .my-works-content
+            .title-block.title-block_my-works
                 .title.title_big Мои работы
-                svg.works_header 
+                svg.my-works__works-background 
                     use(xlink:href=`./assets/images/sprite-svg/svg/symbols.svg#works_header`)
             include ../common/slider.pug  
-    section.section.section_feedback
+    section.section.feedback
         .container.container_feedback
             .feedback-content
-                .title-about
-                    .title.title_big.title_feedback Что  обо мне говорят
-                    svg.about_header 
+                .title-block.title-block_feedback
+                    .title.title_big.title_feedback Что обо мне говорят
+                    svg.feedback__about-background
                         use(xlink:href=`./assets/images/sprite-svg/svg/symbols.svg#about_header`)
                 +feedback('feedback', [
                     {
@@ -42,8 +42,8 @@ block content
                     }     
                 ])
             .communication-content
-                .communication
-                    .title.title_small.title_form Связатся со мной
+                .communication-block
+                    .title.title_small Связатся со мной
                     form.form-communication
                         .form-communication__row
                             label(for="name") 

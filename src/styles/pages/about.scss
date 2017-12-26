@@ -1,89 +1,257 @@
-.section_about-me {
+//секция обо мне
+.about-me {
     width: 100%;
+    min-height: 75%;
     display: grid;
     grid-template-columns: 100%;
-    min-height: 100%;
-    grid-template-rows: 1fr; //rem(190)
+    grid-template-rows: 1fr;
     grid-template-areas: 
-      "content"
+      "content";
+
+    @include ipad {
+        overflow: hidden;  
+    }
+
+    @include iphone {
+        overflow: hidden;  
+    }
+
+    &::before {
+        content: "";
+        display: block;
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 50%;
+        height: 100%;
+        background-color: #ebefe2;
+
+        @include ipad {
+            display: none;
+        }
+
+        @include iphone {
+            display: none;
+        }
+    }
 }
+
 
 .container_about-me {
     height: 100%;
     grid-area: content;
+
+    @include ipad {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    @include iphone {
+        width: 100%;
+        max-width: 100%;
+    }
 } 
 
 
-.about-me{
-    display: flex;
-    flex-direction: row;
+.about-me__content{
     width: 100%;
     height: 100%;
-    z-index: 1;   
+    z-index: 1;
+    display: grid;
+    grid-template-columns: 50% 50%;
+    min-height: 100%;
+    grid-template-rows: 1fr;
+    grid-template-areas: 
+      "left right";
 
+    @include ipad {
+        grid-template-columns: 100%;
+        min-height: 100%;
+        grid-template-rows: 0.5fr 1fr;
+        grid-template-areas: 
+          "left"
+          "right"; 
+    }
+
+    @include iphone {
+        grid-template-columns: 100%;
+        min-height: 100%;
+        grid-template-rows: 0.5fr 1fr;
+        grid-template-areas: 
+          "left"
+          "right"; 
+    }    
+}
+
+
+.about-me {
     &__information {
         display: flex;
         flex-direction: row;
-        width: 50%; 
-        
-        &-left {
-            width: 43%;
-            
+    
+        @include ipad {
+            background-color: #ebefe2;
         }
 
+        @include iphone {
+            background-color: #ebefe2;
+        }
+    
+    
+        @include small-screen {
+            flex-direction: column;
+        }
+    
+        &-left {
+            width: 44%;
+        
+            @include small-screen {
+                width: 100%;
+            }
+            
+        }
+    
         &-right {
-            width: 57%;
+            width: 56%;
             display: flex;
             flex-direction: column;
             padding-left: rem(27);
             padding-right: rem(27); 
+    
+            @include small-screen {
+                width: 100%;
+            }
+    
+            @include ipad {
+                padding-left: rem(150);
+                padding-right: rem(150); 
+            }
 
+            @include iphone {
+                padding-left: 0;
+                padding-right: 0; 
+            }
         }
     }
 
     &__progressbar {
-        width: 50%;
+        grid-area: right;
         height: 100%;
         padding-left: rem(60);
-        //overflow: auto;
+
+        @include small-screen {
+            padding-left: rem(40);
+        }
+
+        @include ipad {
+            background-color: #f4f5f0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-content: center;
+            padding-left: rem(60);
+            padding-right: rem(60);
+        }
+
+        @include iphone{
+            background-color: #f4f5f0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-content: center;
+            padding-left: 0;
+            padding-right: 0;
+        }
+
+       
+
+        .about-me__text {
+
+            @include ipad {
+                padding-left: rem(50);
+                padding-right: rem(50);  
+            }
+
+            @include iphone {
+                padding-left: rem(10);
+                padding-right: rem(10);  
+
+            } 
+        }
+
+
+        .title {
+            padding-left: 25%;
+            padding-right: 25%;
+
+            @include ipad {
+                margin-top: rem(50);
+            }
+    
+            @include iphone {
+                margin-top: rem(30);  
+            } 
+        }
     }
 
     &__photo{
         max-width: 100%;
         max-height: 100%;
         margin-bottom: rem(20);
+
+        &-img {
+            max-width: 100%;
+            max-height: 100%; 
+        }
+    }
+
+}
+
+
+//СЕКЦИЯ С КАРТОЙ
+#map {
+    width: 100%;
+    height: 100%;
+}
+
+.map {
+    width: 100%;
+    height: 125%;
+
+    
+    .footer {
+        position: absolute;
+        left: 0;
+        bottom: 0; 
     }
 }
 
-.section_map {
-    width: 100%;
-    height: 100%;
-    display: grid;
-    grid-template-columns: 100%;
-    min-height: 100%;
-    grid-template-rows: 1fr rem(190); //rem(190)
-    grid-template-areas: 
-      "content"
-      "footer"
-    //display: flex;
-    //align-items: center;
-    //justify-content: center;
-    //overflow: hidden;
-}
-
-
 .contact {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-40%, -50%);
     width: rem(380);
     padding-top: rem(37);
     padding-bottom: rem(37);
-    position: absolute;
-    top:50%;
-    left:50%;
-    transform:translate(-50%,-50%);
     background-color: rgba(244, 245, 240, 0.85);
     border-radius: rem(3);
     display: flex;
     flex-direction: column;
+
+    @include ipad {
+        width: rem(350);
+    }
+
+    @include iphone {
+        top: 0;
+        left: 50%;
+        transform: translate(-50%);
+        width: rem(300);
+        padding-top: rem(30);
+        padding-bottom: rem(30);
+    }
+
 
     &__link {
         display: flex;
@@ -97,6 +265,19 @@
         margin-bottom: rem(25);
         margin-left: rem(40);
         margin-right: rem(40);
+
+        @include ipad {
+            margin-left: rem(20);
+            margin-right: rem(20);
+            margin-bottom: rem(20);
+        }
+
+        @include iphone {
+            margin-left: rem(30);
+            margin-right: rem(30);
+            margin-bottom: rem(25);
+        }
+    
 
         &:last-child {
             margin-bottom: 0;  
@@ -115,33 +296,38 @@
 
 }
 
-.container_map {
-    grid-area: content;
-}
-
-
 //стилизация отдельных блоков
 .text-paragraph {
     font-family: 'robotoregular';
     font-weight: normal;
     font-style: normal;
     color: $light-dark;
+    line-height: 1.5em;
+
+    @include ipad {
+        font-size: rem(14);
+        line-height: 1.7142em;
+    }
+
+    @include iphone {
+        font-size: rem(14);
+        line-height: 1.7142em;
+    }
+   
 
     p {
         margin-bottom: rem(20);
         
         &:last-child{
             margin-bottom: 0; 
+
+            @include ipad {
+                margin-bottom: rem(20);
+            }
+
+            @include iphone {
+                margin-bottom: rem(20);
+            }
         }
     }
-}
-
-.green {
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 50%;
-    height: 100%;
-    //z-index: -1;
-    background-color: #ebefe2;
 }

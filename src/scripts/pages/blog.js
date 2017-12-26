@@ -1,2 +1,5 @@
-const $ = require('jquery');
-console.log('blog')
+console.log('blog');
+const jquery = require('jquery');
+const hamburger = require('../common/hamburger.js');
+
+hamburger();

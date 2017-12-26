@@ -1,45 +1,70 @@
-.section_welcome {
+.welcome {
     background: url("../images/jpg-png/water.jpg") no-repeat center center;
     background-size:  cover;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    text-align: center;
     height: 100%;
-    
 
+    @include iphone {
+        min-height: rem(568);
+    }
+    
     .made-by-text {
         position: absolute;
         bottom: rem(40);
+
+        @include iphone {
+            bottom: rem(10); 
+             
+        }
+
     }
 }
 
 
-.welcome-block {
+.welcome__content {
     width: rem(380);
     height: rem(395);
-    background-color: rgba(18, 38, 32, 0.6);
-    border-radius: rem(3);
+    border-radius: rem(10);
     display: flex;
     align-items: center;
     justify-content: center;
     position: relative;
     overflow: hidden;
 
+    @include ipad {
+        width: rem(350);  
+    }
+
+    @include iphone {
+        width: rem(300);  
+    }
 }
 
-.welcome-block__welcome{
-    margin-bottom: rem(40);
-    display: block;
-    
+
+//блок приветствия
+.welcome__welcome{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(18, 38, 32, 0.6);
+    backface-visibility: hidden;
+    transition: transform 1.5s;
+
+    //margin-bottom: rem(65);
+    //display: block; // none
 
     .social {
         display: flex;
         justify-content: center;
         align-self: center;
         margin-top: rem(30);
-
 
         &__item{
             &:last-child{
@@ -49,201 +74,237 @@
     }
 
     .nav {
-        width: rem(380);
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
 
         &__list{
-            position: absolute;
-            bottom: 0;
-            left: 0;
             display: flex;
-            width: 100%;
+            flex-direction: row;
+            
+        }
+        &__item {
+            height: rem(45);
+            position: relative;
+            flex: 1 1 auto;
+            background-color: rgba($green-light, 0.85);
+            border-right:  rem(3) solid rgba($white, 0.5);
+
+            &:last-child {
+                border-right:  none; 
+            }
+
+            &:hover {
+                background-color: rgba($green-dark, 0.85); 
+                transition: 1s;
+            }
+
 
         }
 
-       
+
         &__link {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+            width: 100%;
             font-family: 'robotomedium';
             font-weight: normal;
             font-style: normal;
             font-size: rem(16);
             color: $white;
-            background-color: $green-light;
-            opacity: 0.85;
             cursor: pointer;
-            padding: rem(14) rem(30);
-            border-right:  rem(3) solid #dee3e7;
-            text-align: center;
-
-            &:last-child {
-                border-right:  none;
-                padding: rem(14) rem(31.5);  
-            }
-            
-            &:hover {
-                background-color: $green-dark; 
-                transition: 1s;
-            }
         }
+
 
         
     }
 
 }
 
-.welcome-block__autorization {
-    display: none;
+
+//блок авторизации
+.welcome__autorization {
+    background-color: rgba(18, 38, 32, 0.6);
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    backface-visibility: hidden;
+
+    transition: transform 1.5s;
+    transform: rotateY(-180deg);
+
+}
+
+.form-autorization {
+    margin-bottom: rem(65);
+    font-family: 'robotoregular';
+    font-weight: normal;
+    font-style: normal;
+    font-size: rem(16);
+    line-height: 1.5em;
+    color: rgba($white, 0.8);
 
 
-    .title_autorization {
-        color: $white;
-        &::after {
-            background-color: $white;
+    &__question-robot {
+        font-family: 'robotobold';
+    }
+
+    &__row {
+        margin-bottom: rem(15);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        &:nth-child(4) {
+           display: flex;
+           flex-direction: column;
+        }
+
+        &:last-child {
+            margin-bottom: 0;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
         } 
     }
 
-    .form-autorization {
-        margin-bottom: rem(60);
-        font-family: 'robotoregular';
-        font-weight: normal;
-        font-style: normal;
-        font-size: rem(16);
-        line-height: 1.5em;
-        color: $white;
+    &__img {
+        width: rem(45);
+        height: rem(45);
+        background-color:  #f0efe9;
+        border-radius:  rem(23) 0 0 rem(23);
+        text-align: center; 
+    }
 
-        &__question-robot {
-            font-family: 'robotobold';
+    &__icon {
+        margin-top: rem(15);
+    }
+
+    &__input {
+        width: rem(295);
+        height: rem(45);
+        padding: rem(15) rem(20);
+        border-radius: 0 rem(23) rem(23) 0;
+        cursor: pointer;
+
+        @include ipad {
+            width: rem(260);  
         }
 
-        &__row {
-            margin-bottom: rem(15);
-            display: flex;
-            justify-content: center;
-            align-items: center;
+        @include iphone {
+            width: rem(225);  
+        }
 
-            &:nth-child(4) {
-               display: flex;
-               flex-direction: column;
+    }
 
-            }
+    &__answer {
+        cursor: pointer;
+        position: relative;
+        padding-left: rem(30);
+        cursor: pointer;
 
-            &:last-child {
-                margin-bottom: 0;
+        &:hover {
+            color: rgba($green-light, 0.8);
+            transition: 1s;
+        }
+
+        &_person {
+            
+            &::before {
                 position: absolute;
-                bottom: 0;
+                content: "";
+                border-radius: rem(1);
+                width: rem(20);
+                height: rem(20);
+                background-color: $white;
                 left: 0;
-                width: 100%;
-            } 
-        }
-
-        &__img {
-            width: rem(45);
-            height: rem(45);
-            background-color:  #f0efe9;
-            border-radius:  rem(23) 0 0 rem(23);
-            
-        }
-
-        &__icon {
-            margin-top: rem(15);
-        }
-
-        &__input {
-            width: rem(295);
-            height: rem(45);
-            padding: rem(15) rem(20);
-            border-radius: 0 rem(23) rem(23) 0;
-            cursor: pointer;
-        }
-
-        &__answer {
-            cursor: pointer;
-            position: relative;
-            padding-left: rem(30);
-            cursor: pointer;
-
-            &_person {
-                
-                &::before {
-                    position: absolute;
-                    content: "";
-                    border-radius: rem(1);
-                    width: rem(20);
-                    height: rem(20);
-                    background-color: $white;
-                    left: 0;
-                    top: rem(2);                                        
-                }
-
-
-                &:after {
-                    position: absolute;
-                    display: block;
-                    color: $white;
-                    top: rem(0);
-                    left: rem(0); 
-                    width: rem(20);
-                    height: rem(20);
-                }
+                top: rem(2);                                        
             }
 
-            &_robot {
-                margin-right: rem(40);
 
-                &:last-child {
-                    margin-right: 0; 
-                }
-                &::before {
-                    position: absolute;
-                    content: "";
-                    border-radius: 50%;
-                    width: rem(20);
-                    height: rem(20);
-                    background-color: $white;
-                    left: 0;
-                    top: rem(2);       
-                }
+            &:after {
+                position: absolute;
+                display: block;
+                color: $white;
+                top: rem(0);
+                left: rem(5); 
+                width: rem(20);
+                height: rem(20);
 
-                &:after {
-                    position: absolute;
-                    display: block;
-                    background-color: $green-light;
-                    top: rem(8);
-                    left: rem(6); 
-                    width: rem(8);
-                    height: rem(8);
-                    border-radius: 50%
-
-                }
             }
         }
 
-        &__button {
-            font-family: 'robotomedium';
-            color: $white;
-            font-size: rem(16);
-            width:  50%;
-            line-height: 2.81em;
-            background-color: $green-light;
-            opacity: 0.85;
-            cursor: pointer;
-            border-right:  rem(3) solid #dee3e7;
-
+        &_robot {
+            margin-right: rem(40);
 
             &:last-child {
-                border-right:  none; 
+                margin-right: 0; 
             }
-            
-            &:hover {
-                background-color: $green-dark; 
-                transition: 1s;
+            &::before {
+                position: absolute;
+                content: "";
+                border-radius: 50%;
+                width: rem(20);
+                height: rem(20);
+                background-color: $white;
+                left: 0;
+                top: rem(2);       
             }
 
+            &:after {
+                position: absolute;
+                display: block;
+                background-color: $green-light;
+                top: rem(8);
+                left: rem(6); 
+                width: rem(8);
+                height: rem(8);
+                border-radius: 50%
+
+            }
+        }
+    }
+
+    &__button {
+        font-family: 'robotomedium';
+        color: $white;
+        font-size: rem(16);
+        width:  50%;
+        line-height: 2.81em;
+        background-color: rgba($green-light, 0.85);
+        cursor: pointer;
+        border-right:  rem(3) solid rgba($white, 0.5);
+        text-align: center;
+
+        &:last-child {
+            border-right:  none; 
+        }
+        
+        &:hover {
+            background-color: rgba($green-dark, 0.85);
+            transition: 1s;
         }
 
     }
 
 }
 
+.title_autorization {
+    color: $white;
+    &::after {
+        background-color: $white;
+    } 
+}
+
+//кнопка авторизации 
 .autorization-button {
     width: rem(180);
     height: rem(45);
@@ -261,6 +322,17 @@
     position: absolute;
     top: rem(25);
     right: 5.55%;
+    transition: 1s;
+
+
+    @include iphone {
+        top: rem(10);
+        left: 50%;
+        transform: translateX(-50%);
+        height: rem(40);
+        width: rem(150);
+
+    }
 
     &:hover {
         background-color:  $green-dark;
@@ -273,7 +345,7 @@
 
 
 //Выпадающий блок при не введенном пароле и логине
-.droptitle-autorization {
+.welcome__autorization-droptitle {
     position: absolute;
     display: block;
     width: rem(185);
@@ -282,7 +354,7 @@
 	border-radius:  rem(3);
 	top: rem(167);
     opacity: 0;
-    left:  rem(-9999); // left:rem(65) //top: rem(225)(для пароля) //opacity: 1;
+    left:  rem(-9999); // left:rem(65) //top: rem(225)(для пароля) //opacity: 1; rem(-9999)
 	transition: opacity 1s;
     z-index: 10;
     font-family: 'robotomedium';
@@ -292,8 +364,7 @@
     color: $white;
     background: $red;
 
-
-    &__triangle {
+    .autorization-droptitle__triangle {
         content: "";
         display: block;
         width: 0;
@@ -309,10 +380,13 @@
 
 }
 
-.form-autorization__answer:hover {
-    color:  $green-light;
-    transition: 1s;
-
+//flip эффект
+.welcome__content.flipped  .welcome__welcome {
+    transform: rotateY(-180deg);
+}
+     
+.welcome__content.flipped .welcome__autorization {
+    transform: rotateY(0);
 }
 
 //Работа с радиокнопками и чекбоксом

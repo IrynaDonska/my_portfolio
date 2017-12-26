@@ -7,15 +7,15 @@ block variables
     - var titleItsMe = 'БЛОГ'
     - var descriptionItsMe = 'Статьи которые я написала'
     - var itsMeModif = 'its-me__name_blog'
-    - var portfolioHeaderBlog = 'portfolio_header-none'
+    - var portfolioHeaderBlog = 'header__portfolio-background_none'
  
 block content
-    include ../common/triangle-forest.pug   
-    section.section.section_blog
+    include ../common/section-header.pug   
+    section.section.blog
         .container.container_blog
-            .blog
+            .blog__content
                 .blog__left
-                    ul.blog-main-title__list
+                    ul.blog-main-title
                         li.blog-main-title__item.blog-main-title__item_active
                             .blog-main-title__name Самое важное в SASS
                         li.blog-main-title__item
@@ -25,7 +25,7 @@ block content
                         li.blog-main-title__item
                             .blog-main-title__name Почему я выбрал Jade
                 .blog__right
-                    ul.articles__list
+                    ul.articles
                         li.articles__item
                             article.article
                                 .articles__name Самое важное в SASS

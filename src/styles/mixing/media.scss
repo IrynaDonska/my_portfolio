@@ -11,14 +11,14 @@
     }
 }
 
-@mixin ipad {
-    @media screen and  (max-width: $ipad) {
+@mixin ipad{
+    @media screen  and (max-width: $ipad-h ) and (min-width: $ipad-w) {
         @content;
     }
 }
 
 @mixin iphone {
-    @media screen and  (max-width: $iphone) {
+    @media screen and (max-width : $iphone-h) and (min-width: $iphone-w) {
         @content;
     }
 }

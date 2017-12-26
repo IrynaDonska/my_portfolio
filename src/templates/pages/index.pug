@@ -9,13 +9,13 @@ block variables
     - var descriptionItsMe = 'Личный сайт веб разработчика'
 
 block content
-    section.section.section_welcome
-        .welcome-block
-            .welcome-block__welcome
+    section.section.welcome
+        .welcome__content
+            .welcome__welcome
                 include ../common/its-me-circle.pug
                 +social('social', [{"text": "vk", "link": "https://vk.com/iryyysik"}, {"text": "github", "link": "https://github.com/IrynaDonska"}, {"text": "in", "link": "#"}])
                 +nav('nav', [{"text": "Мои работы", "link": "my-works.html"}, {"text": "Обо мне", "link": "about.html"}, {"text": "Блог", "link": "blog.html"}])
-            .welcome-block__autorization
+            .welcome__autorization
                 .title.title_small.title_autorization Авторизуйтесь
                 form.form-autorization
                     .form-autorization__row
@@ -39,10 +39,10 @@ block content
                             input.form-autorization__input-person-circle.visuallyHidden(type="radio" name="you-person" id="no-person" value="Не уверен")
                             label.form-autorization__answer.form-autorization__answer_robot(for="no-person") Не уверен
                     .form-autorization__row
-                        button.form-autorization__button На главную
-                        button.form-autorization__button Войти
-            .droptitle-autorization
-                .droptitle-autorization__triangle
-                .droptitle-autorization__text Вы не ввели логин                
+                        a.form-autorization__button.main-page(href="about.html") На главную
+                        a.form-autorization__button.autorization() Войти
+            .welcome__autorization-droptitle
+                .autorization-droptitle__triangle
+                .autorization-droptitle__text Вы не ввели логин                
         a.autorization-button Авторизоваться
         p.made-by-text © Ирина Донская | Создано с любовью в LoftSchool | 2017         

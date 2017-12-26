@@ -1,34 +1,43 @@
-//СЕКЦИЯ МОИ РАБОТЫ
-.section_my-work {
-    width: 100%;
+.my-works {
     min-height: 100%;
-    display: grid;
-    grid-template-columns: 100%;
-    grid-template-rows: 1fr; 
-    grid-template-areas: 
-      "content"
 }
-
-.my-work-content {
-    grid-area: content;
-    display: flex;
-    flex-direction: column;
-}
+//слайдер
 .slider{
-    height: 100%;
+    height: 100vh;
     width: 100%;
     display: grid;
     grid-template-columns: 50% 50%;
     grid-template-rows: 75% 25%;
     grid-template-areas: 
-      "info display"
-      "info btns";
+        "info display"
+        "info btns"; 
+
+    @include ipad {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: 50% 30% 20%;
+        grid-template-areas: 
+            "display"
+            "info"
+            "btns";
+        }
+    @include iphone{
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: 45% 40% 15%;
+        grid-template-areas: 
+            "display"
+            "info"
+            "btns";
+    }          
 }
+
+
 
 .slider {
     &__description {
         background-color: #ebefe2;
-        grid-area: info ;
+        grid-area: info;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -42,7 +51,14 @@
         align-items: center;
         width: rem(320);
 
+        @include ipad {
+            width: rem(550);
+        } 
+        @include iphone{
+            width: rem(200);
+        } 
     } 
+
 
     &__site-technologies {
         font-family: 'robotomedium';
@@ -52,7 +68,17 @@
         color: $green-dark;
         margin-bottom: rem(60);
 
+        @include ipad {
+           margin-bottom: rem(40);
+        }
+
+        @include iphone {
+            font-size: rem(14);
+            margin-bottom: rem(20);
+        }
+        
     }
+
 
     &__site-button {
         display: flex;
@@ -69,12 +95,17 @@
         font-style: normal;
         font-size: rem(16);
         color: $white;
-        
+
+        @include iphone {
+            font-size: rem(14);
+            width: rem(185);
+            height: rem(40);
+        }
+
         &:hover {
             background-color: $green-dark; 
             transition: 1s;
         }
-
     }
 
     .slider__item_active {
@@ -83,13 +114,10 @@
 
 }
 
-
 .slider__pages {
     background-color: #e1e4d7;
     grid-area: display;
-    position: relative;
-
-
+    position: relative;  
 }
 
 .pages {
@@ -108,32 +136,26 @@
 
 
         &_showing {
-            display: flex;
-            
+            display: flex;   
         }
     }
 
     &__item-img {
         max-width: 66%;
         max-height: 76%;
-        //position: absolute;
-        //top: 50%;
-        //left: 50%;
-        //transform:translate(-50%,-50%);
-
     }
 }
 
-
-.buttons {
+.slider__buttons {
     grid-area: btns;
     display: grid;
     grid-template-columns: 50% 50%;
     grid-template-areas: 
-      "btn-prev btn-next"    
+      "btn-prev btn-next";
+    
 }
 
-.controls {
+.slider__button {
     width: 100%;
     height: 100%;  
     display: flex;
@@ -141,6 +163,7 @@
     align-items: center;
     position: relative;
     cursor: pointer;
+    background-color: #bdbebd;
 
     &::after {
         content: "";
@@ -162,51 +185,32 @@
 
     }
 
-    &:hover .controls__icon {
+    &:hover .button__icon {
         display: none;
         transition: 1s;
     }
 }
 
-.controls_previous {
-    background-color: #bdbebd;
+.slider__button_previous {
     grid-area: btn-prev;
 }
 
-.controls_next {
-    background-color: #bdbebd;
+.slider__button_next {
     grid-area: btn-next;
 }
 
-.title-my-works {
-    padding-top: rem(70);
-    position: relative;
-    
-    .title {
-        z-index: 10;
-    }
-
-}
-
-
-
-//CЕКЦИЯ ОТЗЫВЫ
-.section_feedback {
+// отзывы
+.feedback {
     background: url("../images/jpg-png/my-work.jpg") no-repeat center center;
     background-size:  cover;
     width: 100%;
     min-height: 100%;
-    display: grid;
-    grid-template-columns: 100%;
-    grid-template-rows: 1fr rem(190);
-    grid-template-areas: 
-      "content"
-      "footer"
+    display: flex;
+    flex-direction: column;
 } 
-.container_feedback {
-    grid-area: content;
-    position: relative;
 
+.container_feedback {
+    position: relative;
 }
 
 .feedback {
@@ -216,6 +220,15 @@
         flex-direction: row;
         justify-content:center ;
         align-items: center;
+
+        @include ipad {
+            margin-bottom: rem(50);       
+        }
+
+        @include iphone {
+            margin-bottom: rem(35);
+            flex-direction: column;
+        }
     }
 
     &__item {
@@ -232,8 +245,20 @@
         line-height: 1.5em;
         color: #5d5a55;
 
+    
+        @include iphone{
+            width: rem(290);
+            margin-right: 0;
+            margin-bottom: rem(40)
+
+        }          
+
         &:last-child {
             margin-right: 0;
+
+            @include iphone{
+                margin-bottom: 0;
+            }
         }
 
         
@@ -243,132 +268,179 @@
             height: rem(80);
             border-radius: 50%;
             background-size:  cover;
-            margin-bottom: rem(20);
+            margin-bottom: rem(22);
+
+            @include iphone {
+                width: rem(50);
+                height: rem(50);
+                margin-bottom: rem(17);  
+            } 
             
             &-img {
                 width: rem(80);
                 height: rem(80);
-                border-radius: 50%; 
+                border-radius: 50%;
+                
+                @include iphone {
+                    width: rem(50);
+                    height: rem(50);  
+                }
             }
         }
 
         &-description {
             line-height: 1.625em;
             margin-bottom: rem(30);
+
+            @include ipad {
+                font-size: rem(14);
+                line-height: 1.7142em;
+                margin-bottom: rem(20);       
+            }
+
+            @include iphone {
+                font-size: rem(14);
+                line-height: 1.7142em;
+                margin-bottom: rem(20);       
+            }
         }
 
         &-name {
             font-family: 'robotobold_italic';
             margin-bottom: rem(10);
             color: $green-dark;
+
+            @include iphone {
+                font-size: rem(14);
+                line-height: 1.7142em;       
+            }
         }
 
         &-position {
             color: $dark;
+
+            @include iphone {
+                font-size: rem(14);
+                line-height: 1.7142em;       
+            }
         }
 
-    }
-
-    
+    } 
 }
 
+
+//форма связи
 .communication-content {
     display: flex;
     justify-content: center;
     align-content: center;
     margin-bottom: rem(160);
-
-    .communication {
-        width: rem(380);
-        height: rem(460);
-        background-color: rgba(218, 219, 214, 0.6);
-        border-radius: rem(5);
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        position: relative;
-        overflow: hidden; 
-    }
-    
-    .form-communication {
-    
-        &__row {
-            margin-bottom: rem(20);
-           
-
-            &:nth-child(3) {
-                margin-bottom: rem(55);
-
-            }
-
-            &:last-child {
-                display: flex;
-                flex-direction: row;
-                position: absolute;
-                bottom: 0;
-                left: 0;
-                width: 100%;
-                margin-bottom: 0;
-
-            }
-
- 
-        }
- 
-        &__input {
-            width: rem(295);
-            height: rem(45);
-            padding: rem(15) rem(20);
-            border-radius: rem(23);
-            cursor: pointer;
-        }
- 
-        &__textarea {
-            width: rem(295);
-            height: rem(140);
-            padding: rem(15) rem(20);
-            border-radius: rem(23);
-            cursor: pointer;
-            resize: none;
-        }
-
-        &__button {
-            font-family: 'robotomedium';
-            color: $white;
-            font-size: rem(16);
-            width:  50%;
-            line-height: 2.81em;
-            background-color: $green-light;
-            opacity: 0.85;
-            cursor: pointer;
-            border-right:  rem(3) solid #dee3e7;
-        
-            
-            &:last-child {
-                border-right:  none; 
-            }
-            
-            &:hover {
-                background-color: $green-dark; 
-                transition: 1s;
-            }
-
-        }
-    }
 }
 
-.title-about {
-    padding-top: rem(70);
+.communication-block {
+    width: rem(380);
+    height: rem(460);
+    border-radius: rem(5);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     position: relative;
+    overflow: hidden;
 
-    .title {
-        z-index: 10;
+    @include ipad {
+        width: rem(350);
+        height: rem(440);       
     }
+
+    @include iphone {
+        width: rem(300);
+        height: rem(420);       
+    }
+    
+
+    &:before {
+        content: '';
+        position: absolute; top: 0; left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(218, 219, 214, 0.6);     
+        filter: blur(5px);  
+      }
 }
 
+.form-communication {
+    z-index: 1;
+    &__row {
+        margin-bottom: rem(20);
+       
+        &:nth-child(3) {
+            margin-bottom: rem(55);
+        }
 
+        &:last-child {
+            display: flex;
+            flex-direction: row;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            margin-bottom: 0;
+        }
 
+    }
 
+    &__input {
+        width: rem(340);
+        height: rem(45);
+        padding: rem(15) rem(20);
+        border-radius: rem(23);
+        cursor: pointer;
 
+        @include ipad {
+            width: rem(310);       
+        }
 
+        @include iphone {
+            width: rem(260);
+            height: rem(40);
+        }
+    }
+
+    &__textarea {
+        width: rem(340);
+        height: rem(140);
+        padding: rem(15) rem(20);
+        border-radius: rem(23);
+        cursor: pointer;
+        resize: none;
+
+        @include ipad {
+            width: rem(310);       
+        }
+
+        @include iphone {
+            width: rem(260);
+        }
+    }
+
+    &__button {
+        font-family: 'robotomedium';
+        color: $white;
+        font-size: rem(16);
+        width:  50%;
+        line-height: 2.81em;
+        background-color: rgba($green-light, 0.85);
+        cursor: pointer;
+        border-right:  rem(3) solid rgba($white, 0.5);
+    
+        &:last-child {
+            border-right:  none; 
+        }
+        
+        &:hover {
+            background-color: rgba($green-dark, 0.85); 
+            transition: 1s;
+        }
+    }
+}

@@ -4,37 +4,76 @@
     height: rem(22);
     cursor: pointer;
 
+    @include iphone {
+        width: rem(24);
+        height: rem(17);  
+    }
+
+
     &:hover {
         fill: $green-light;
         transition: 1s; 
     }
 }
 
+//header
 .hamburger__img {
-    fill: $grey;
-    width: rem(42);
-    height: rem(40);
+    fill: $white;
+    width: rem(40);
+    height: rem(35);
     cursor: pointer;
+
+    @include iphone {
+        width: rem(25);
+        height: rem(23);  
+    }
+}
+.header__portfolio-background {
+    width: 70%;
+    height: 100%;
+    position: absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+    fill: $white;
+    opacity: 0.2;
+}
+
+.header__portfolio-background_none {
+    display: none; 
+}
+
+.header__blog-background {
+    width: 70%;
+    height: 100%;
+    position: absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+    fill: $white;
+    opacity: 0.2;   
+}
+
+.header__blog-background_none{
+    display: none; 
 }
 
 .hidden-menu__close {
     fill: $white;
-    width: rem(42);
-    height: rem(40);
+    width: rem(40);
+    height: rem(35);
     cursor: pointer;
     position: absolute;
     top: rem(30);
     right: 0;
-    
+
+    @include iphone {
+        width: rem(25);
+        height: rem(23);  
+    }    
 }
 
-.form-autorization__icon{
-    fill: #c4cbcd;
-    width: rem(15);
-    height: rem(15); 
-}
-
-.arrow-down{
+.header__arrow-down{
     position: absolute;
     bottom: 15%;
     left: 49.2%;
@@ -48,6 +87,13 @@
         fill: $white;
         transition: 1s; 
     }
+}
+
+//welcome page
+.form-autorization__icon{
+    fill: #c4cbcd;
+    width: rem(15);
+    height: rem(15); 
 }
 
 .contact__icon {
@@ -66,14 +112,13 @@
     left:50%;
     transform:translate(-50%,rem(-35));
     
-    
     &:hover {
         fill: $white;
         transition: 1s; 
     }
 }
 
-.controls__icon {
+.button__icon {
     fill: $white;;
     width: rem(40);
     height: rem(30);
@@ -85,8 +130,8 @@
     z-index: 2;
 }
 
-
-.works_header {
+//фоны для заголовков
+.my-works__works-background {
     width: 100%;
     position: absolute;
     top:50%;
@@ -96,7 +141,8 @@
     opacity: 0.2;  
 }
 
-.about_header {
+
+.feedback__about-background {
     width: 100%;
     height: 100%;
     position: absolute;
@@ -105,38 +151,17 @@
     transform:translate(-50%,-50%);
     fill: #93c42e;
     opacity: 0.2;  
-
 }
 
-.portfolio_header {
-    width: 70%;
-    height: 100%;
+.about-me__about-background {
     position: absolute;
     top:50%;
     left:50%;
     transform:translate(-50%,-50%);
-    fill: $white;
-    opacity: 0.2;   
+    fill: #93c42e;
+    opacity: 0.2;  
 }
 
-.portfolio_header-none {
-    display: none; 
-}
-
-.blog_header {
-    width: 70%;
-    height: 100%;
-    position: absolute;
-    top:50%;
-    left:50%;
-    transform:translate(-50%,-50%);
-    fill: $white;
-    opacity: 0.2;   
-}
-
-.blog_header-none {
-    display: none; 
-}
 
 
 .slider__site-button-img {

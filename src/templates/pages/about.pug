@@ -7,20 +7,24 @@ block variables
     - var titleItsMe = 'Ирина Донская'
     - var descriptionItsMe = 'Личный сайт веб разработчика'
     - var leftTriangleModif = 'triangle__left_about'
-    - var headerBlog = 'blog_header-none'
+    - var rightTriangleModif = 'triangle__right_about'
+    - var headerBlog = 'header__blog-background_none'
+    
 
 block content
-    include ../common/triangle-forest.pug   
-    section.section.section_about-me
-        .green
+    include ../common/section-header.pug   
+    section.section.about-me
         .container.container_about-me
-            .about-me
+            .about-me__content
                 .about-me__information
                     .about-me__information-left
-                        .title.title_big.title_line.title_about-me Обо мне
+                        .title-block.title-block_about-me
+                            .title.title_big Обо мне
+                            svg.about-me__about-background 
+                                use(xlink:href=`./assets/images/sprite-svg/svg/symbols.svg#about_header`)
                     .about-me__information-right
                         .about-me__photo
-                            img.about-me__photo(src="./assets/images/jpg-png/me.jpg", alt="Мое фото")
+                            img.about-me__photo-img(src="./assets/images/jpg-png/me.jpg", alt="Мое фото")
                         .title.title_small Кто я
                         .about-me__text.text-paragraph 
                             p Я веб разработчик из Грузии. Мне 23 года. Я занимаюсь разработкой современных сайтов и приложений. Мне нравится делать интересные и современные проекты.
@@ -30,24 +34,26 @@ block content
                     .about-me__text.text-paragraph 
                         p Больше всего меня привлекет Frontend разработка, но я также знаком и могу решать не сложные задачи на Backend. Но давайте по порядку.
                     include ../common/progress-bar.pug
-    section.section.section_map#map
-        .container.container_map
-            .contact
-                .title.title_small Контакты
-                a.contact__link(href="skype:iryna_donska?call") 
-                    svg.contact__icon
-                        use(xlink:href=`./assets/images/sprite-svg/svg/symbols.svg#skype`) 
-                    span iryna_donska
-                a.contact__link(href="mailto:id2910@mail.ru")  
-                    svg.contact__icon
-                        use(xlink:href=`./assets/images/sprite-svg/svg/symbols.svg#envelope2`) 
-                    span id2910@mail.ru
-                a.contact__link(href="tel:+995557538308")  
-                    svg.contact__icon
-                        use(xlink:href=`./assets/images/sprite-svg/svg/symbols.svg#phone2`) 
-                    span +995 557 538 308
-                .contact__link    
-                    svg.contact__icon
-                        use(xlink:href=`./assets/images/sprite-svg/svg/symbols.svg#map_marker`)   
-                    span Грузия, г. Тбилиси 
-        include ../common/footer.pug   
+    section.section.map
+        div#map
+        .contact
+            .title.title_small Контакты
+            a.contact__link(href="skype:iryna_donska?call") 
+                svg.contact__icon
+                    use(xlink:href=`./assets/images/sprite-svg/svg/symbols.svg#skype`) 
+                span iryna_donska
+            a.contact__link(href="mailto:id2910@mail.ru")  
+                svg.contact__icon
+                    use(xlink:href=`./assets/images/sprite-svg/svg/symbols.svg#envelope2`) 
+                span id2910@mail.ru
+            a.contact__link(href="tel:+995557538308")  
+                svg.contact__icon
+                    use(xlink:href=`./assets/images/sprite-svg/svg/symbols.svg#phone2`) 
+                span +995 557 538 308
+            .contact__link    
+                svg.contact__icon
+                    use(xlink:href=`./assets/images/sprite-svg/svg/symbols.svg#map_marker`)   
+                span Грузия, г. Тбилиси 
+        include ../common/footer.pug
+    script(async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDntF-LQYqZhIC50-94Ovvl4Lw9W7T5SXA&callback=initMap")
+

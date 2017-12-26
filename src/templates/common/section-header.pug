@@ -1,0 +1,21 @@
+include ./_mixings.pug
+
+section.section.header
+    .container.container_header
+        .header-buttons
+            .header-buttons__column
+                +social('social', [{"text": "vk", "link": "https://vk.com/iryyysik"}, {"text": "github", "link": "https://github.com/IrynaDonska"}, {"text": "in", "link": "#"}])
+            .header-buttons__column
+                .hamburger
+                    button(class="hamburger__button hamburger__button_htx")
+                        span toggle menu              
+        .header-content
+            include ../common/its-me-circle.pug
+    svg.header__arrow-down 
+        use(xlink:href=`./assets/images/sprite-svg/svg/symbols.svg#arrow_down`)
+    svg.header__portfolio-background(class=portfolioHeaderBlog) 
+        use(xlink:href=`./assets/images/sprite-svg/svg/symbols.svg#portfolio_header`)
+    svg.header__blog-background(class=headerBlog) 
+        use(xlink:href=`./assets/images/sprite-svg/svg/symbols.svg#blog_header`)
+    include ./triangle-svg.pug
+    +nav('hidden-menu', [{"text": "Мои работы", "link": "my-works.html"}, {"text": "Обо мне", "link": "about.html"}, {"text": "Блог", "link": "blog.html"}, {"text": "Авторизация", "link": "index.html"}]) 

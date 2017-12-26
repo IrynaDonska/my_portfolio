@@ -1,0 +1,295 @@
+.header {
+    background: url("../images/jpg-png/water.jpg") no-repeat center center;
+    background-size:  cover;
+    display: flex;
+    align-items: center;
+    height: 100%;
+
+    @include iphone {
+        height: 100vh;
+    }
+}
+
+.container_header {
+    height: 100%;
+    position: relative;
+    justify-content: center;
+    //z-index: 2;
+
+} 
+
+//кнопки
+.header-buttons {
+    position: absolute;
+    top: rem(30);
+    left: 0;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    
+
+    &__column {
+        width: 50%;
+    } 
+}
+
+
+.hamburger {
+    display: flex;
+    justify-content: flex-end;
+
+
+    .hamburger__button {
+        display: block;
+        position: relative;
+        overflow: hidden;
+        margin: 0;
+        padding: 0;
+        width: rem(40);
+        height: rem(35);
+        font-size: 0;
+        text-indent: rem(-9999);
+        appearance: none;
+        box-shadow: none;
+        border-radius: none;
+        border: none;
+        cursor: pointer;
+        transition: 0.3s;
+        background: transparent;
+        z-index: 30;
+
+    }
+
+    .hamburger__button:focus {
+        outline: none;
+    }
+    .hamburger__button span {
+        display: block;
+        position: absolute;
+        top: rem(15);
+        left: 0;
+        right: 0;
+        height: rem(5);
+        border-radius: rem(2);
+        background: white;
+    }
+    
+    .hamburger__button span::before,
+    .hamburger__button span::after {
+        position: absolute;
+        display: block;
+        left: 0;
+        width: 100%;
+        height: rem(5);
+        border-radius: rem(2);
+        background-color: #fff;
+        content: "";
+    }
+    
+    .hamburger__button span::before {
+        top: rem(-14);
+    }
+    
+    .hamburger__button span::after {
+        bottom: rem(-14);
+    }
+       
+    .hamburger__button_htx span {
+        transition:  0 0.3s;
+    }
+       
+    .hamburger__button_htx span::before,
+    .hamburger__button_htx span::after {
+        transition-duration: 0.3s, 0.3s;
+        transition-delay: 0.3s, 0;
+    }
+       
+    .hamburger__button_htx span::before {
+        transition-property: top, transform;
+    }
+       
+    .hamburger__button_htx span::after {
+        transition-property: bottom, transform;
+    }
+       
+    /* active state*/ 
+    .hamburger__button_htx.active span {
+        background: none;
+    }
+       
+    .hamburger__button_htx.active span::before {
+        top: 0;
+        transform: rotate(45deg);
+    }
+       
+    .hamburger__button_htx.active span::after {
+        bottom: 0;
+        transform: rotate(-45deg);
+    }
+       
+    .hamburger__button.active span::before,
+    .hamburger__button.active span::after {
+        transition-delay: 0, 0.3s;
+    }
+} 
+
+
+//контент(круг с фото)
+.its-me {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: $white;
+    
+    
+    &__photo{
+        width: rem(140);
+        height: rem(140);
+        border-radius: 50%;
+        background-size:  cover;
+        margin-bottom: rem(20);
+        z-index: 2;
+
+        &-img {
+            width: rem(140);
+            height: rem(140);
+            border-radius: 50%;
+            margin-bottom: rem(20); 
+        }
+    }
+
+   
+
+    &__name {
+        font-family: 'robotomedium';
+        font-weight: normal;
+        font-style: normal;
+        font-size: rem(28);
+        line-height: 1.2142em;
+
+        @include iphone {
+            font-size: rem(21);
+            line-height: 1.3333em;  
+        } 
+    }
+
+    &__description {
+        font-family: 'robotoregular';
+        font-weight: normal;
+        font-style: normal;
+        font-size: rem(16);
+        line-height: 1.5em;
+        opacity: 1;
+
+        @include iphone {
+            font-size: rem(14);
+            line-height: 1.7142em;  
+        }
+    }
+}
+
+//треугольник
+.header__triangle-box {
+    position: absolute;
+    bottom: rem(-6);
+    left: 0;
+    width: 100%;
+}
+.triangle {
+    fill: $white;
+}
+
+.triangle__left_about{
+    fill: #ebefe2;
+}
+
+.triangle__right_about {
+    @include ipad {
+        fill: #ebefe2;
+    }
+    
+    @include iphone {
+        fill: #ebefe2;
+    }
+}
+
+
+//скрытое меню
+.hidden-menu {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: rgba($green-light, 0.87);
+    width: 100%;
+    height: 100vh;
+    display: none; //flex
+    justify-content: center;
+    z-index: 20;
+    text-align: center;
+
+    &__list {
+        margin-top: rem(260);
+        display: flex;
+        flex-direction: column;
+
+        @include ipad {
+            margin-top: rem(200);  
+        }
+        @include iphone {
+            margin-top: rem(150);  
+        }
+    }
+
+    &__item {
+        @include big-title;
+        line-height: 0.380em;
+        letter-spacing: 0.025em;
+        color: $white;
+        text-align: center;
+        position: relative;
+        margin-bottom: rem(90);
+
+        @include ipad {
+            font-size: rem(49);
+            line-height: 0.480em;
+            margin-bottom: rem(100);  
+        }
+        @include iphone {
+            font-size: rem(35);
+            line-height: 0.680em;
+            margin-bottom: rem(50);  
+        }
+
+
+        &:hover {
+            transition: 1s;
+            &::after {
+                content: "" ;
+                display: block;
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                width: rem(90);
+                height: rem(3);
+                background-color: $white;
+                margin: rem(-30) auto;
+
+                @include iphone {
+                    width: rem(60);
+                    margin: rem(-20) auto;  
+                }
+            }
+        }
+    }
+
+
+    &__link {
+        color: $white;
+    }
+}
+
+.hidden-menu_active {
+    display: flex;
+}

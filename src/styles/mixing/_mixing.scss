@@ -11,6 +11,15 @@
     line-height: 1.11116em;
     text-transform: uppercase;
     color: $dark; 
+
+    @include ipad {
+        font-size: rem(48);
+        line-height: 1.2083em;   
+    }
+    @include iphone {
+        font-size: rem(35);
+        line-height: 1.2em;   
+    }  
 }
 
 @mixin small-title {
@@ -21,4 +30,13 @@
     line-height: 1.1428em;
     text-transform: uppercase;
     color: $light-dark;
+
+    @include ipad {
+        font-size: rem(30);
+        line-height: 1.2em;   
+    }
+    @include iphone {
+        font-size: rem(21);
+        line-height: 1.3333em;   
+    } 
 }

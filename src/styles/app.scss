@@ -12,8 +12,11 @@ $blue: #6da3bd;
 //resolution
 $big-screen: 1800px;
 $small-screen: 1200px;
-$ipad: 768px;
-$iphone:  480px;
+$ipad-w:  569px;//768px
+$ipad-h: 1024px;
+$iphone-w: 320px;
+$iphone-h: 568px;
+
 
 @import 'mixing/*.scss';
 @import 'layouts/*.scss';

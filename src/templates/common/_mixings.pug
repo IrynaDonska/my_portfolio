@@ -1,8 +1,9 @@
 mixin nav(className, items)
-    nav.nav
-        div(class=`${className}__list`)
+    nav(class=`${className}`)
+        ul(class=`${className}__list`)
             each item in items
-                a(class=`${className}__link` href=`${item.link}`)= item.text
+                li(class=`${className}__item`)
+                    a(class=`${className}__link` href=`${item.link}`)= item.text
 
 mixin social(className, socials)
     .social
@@ -15,15 +16,14 @@ mixin social(className, socials)
 
 
 mixin feedback(className, feedbacks)
-    .feedback
-        ul(class=`${className}__list`)
-            each feedback in feedbacks
-                li(class=`${className}__item`)
-                    div(class=`${className}__item-photo` style=`${feedback.photo}`) 
-                        img.visuallyHidden(class=`${className}__item-photo-img` src=`${feedback.src}`, alt=`${feedback.name}`)
-                    p(class=`${className}__item-description`)= feedback.description
-                    div(class=`${className}__item-name`)= feedback.name
-                    div(class=`${className}__item-position`)= feedback.position
+    ul(class=`${className}__list`)
+        each feedback in feedbacks
+            li(class=`${className}__item`)
+                div(class=`${className}__item-photo` style=`${feedback.photo}`) 
+                    img.visuallyHidden(class=`${className}__item-photo-img` src=`${feedback.src}`, alt=`${feedback.name}`)
+                p(class=`${className}__item-description`)= feedback.description
+                div(class=`${className}__item-name`)= feedback.name
+                div(class=`${className}__item-position`)= feedback.position
 
 mixin slide-info(className, sliders)
     ul(class=`${className}__list`)

@@ -1,5 +1,7 @@
+console.log('my work');
+const jquery = require('jquery');
 const slider = require('../common/slider.js');
-const $ = require('jquery'); 
+const hamburger = require('../common/hamburger.js');
 
-slider(); 
-console.log('my work')
+hamburger();
+slider();

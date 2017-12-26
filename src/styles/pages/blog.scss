@@ -1,44 +1,120 @@
-.section_blog {
+.blog {
     width: 100%;
-    display: grid;
-    grid-template-columns: 100%;
-    height: 100%;
-    grid-template-rows: 100% rem(190); 
-    grid-template-areas: 
-      "content"
-      "footer"
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    height: rem(1345);
+
+    @include small-screen {
+        height: rem(1590); 
+    }
+
+    @include ipad {
+        height: rem(1280); 
+    }
+
+    @include iphone {
+        height: rem(2050); 
+    }
 }
 
 .container_blog {
-    grid-area: content;
+    height: 100%;
+    position: relative; 
+
 }
 
-.blog {
+.blog__content {
+    height: 100%;
+    position: relative;
     margin-top: rem(40);
     margin-bottom: rem(60);
-    overflow: hidden;
     display: grid;
     grid-template-columns: 22% 78%;
-    height: 100%;
     grid-template-rows: 100%; 
     grid-template-areas: 
-      "articles-name articles-text"
+      "articles-name articles-text";
+
+    @include ipad {
+        grid-template-columns: 100%;
+        grid-template-areas: 
+            "articles-text";  
+    }
+
+    @include iphone {
+        grid-template-columns: 100%;
+        grid-template-areas: 
+            "articles-text";  
+    }
+
+    &::after {
+
+        /*@include ipad  {
+            content: "" ;
+            position: absolute;
+            display: block;
+            top: 20%;
+            right: 99%;
+            transform: translate(-20%, -99%); //right: -99%;  -10% (в нормальном варианте)
+            width: rem(50);
+            height: rem(50);
+            border-radius: 50%;
+            background-color: $green-light;
+            z-index: 8;    
+        }
+
+        @include iphone  {
+            content: "" ;
+            position: absolute;
+            display: block;
+            top: 20%;
+            right: 10%;
+            transform: translate(-20%, -10%);
+            width: rem(50);
+            height: rem(50);
+            border-radius: 50%;
+            background-color: $green-light;
+            z-index: 8;    
+        }*/  
+    }
 }
 
-//НАЗВАНИЯ СТАТЕЙ
+
+
+//название статей слева 
 .blog__left {
+    height: 100%;
+    overflow: auto;
     grid-area: articles-name;
     padding-left: rem(80);
 
+    @include small-screen {
+        padding-left: rem(35);
+    }
 
+    @include ipad {  
+        position: absolute;
+        height: 100vh;  
+        top: 0;
+        left: -94%; //-94%  -4% (в нормальном варианте)
+        background-color: $green-light;
+        z-index: 5;
+        width: 90%;  
+    }
+
+    @include iphone {  
+        position: absolute;
+        height: 100vh;  
+        top: 0;
+        left: -94%; //-94%  -4% (в нормальном варианте)
+        background-color: $green-light;
+        z-index: 5;
+        width: 90%;  
+    }
 }
 
 .blog-main-title {
 
-    &__list {
-        
-
-    }
     &__item {
         display: flex;
         justify-content: flex-end;
@@ -54,16 +130,55 @@
         line-height: 1.625em;
         color: $dark;
 
+        
+
+        @include ipad {
+            color: $white;
+            opacity: 0.7;
+        }
+
+        @include iphone {
+            color: $white;
+            opacity: 0.7;
+        }
+
+
         &_active {
             color: $green-dark;
             font-family: 'robotobold';
-            border-right: rem(3) solid $green-dark;    
+            border-right: rem(3) solid $green-dark;
+            
+            @include ipad {
+                color: $white;
+                border-right: none;
+                opacity: 1;      
+            }
+
+            @include iphone {
+                color: $white;
+                border-right: none;
+                opacity: 1;      
+            }
         }
 
         &:hover {
             color: $green-dark;
             font-family: 'robotobold';
             border-right: rem(3) solid $green-dark;
+
+            @include ipad {
+                color: $white;
+                border-right: none;
+                opacity: 1; 
+
+            }
+
+            @include iphone {
+                color: $white;
+                border-right: none;
+                opacity: 1; 
+
+            }
         }
 
         &:last-child {
@@ -73,25 +188,51 @@
     
 }
 
-//ТЕКСТ СТАТЕЙ
+//текс статей справа
 .blog__right {
     height: 100%;
     overflow: auto;
     grid-area: articles-text;
-    padding-left: rem(120);
+    padding-left: rem(100);
     padding-right: rem(280);
+
+    @include small-screen {
+        padding-right: rem(0);  
+    }
+
+    @include ipad {
+        padding-left: 0;
+    }
+    @include iphone {
+        padding-left: 0;
+    }
 }
 
+
 .articles {
-
-    &__list {
-
-    }
 
     &__item {
         position: relative;
         margin-bottom: rem(70);
         margin-top: rem(140);
+        position: relative;
+        width: 100%;
+
+        @include small-screen {
+            padding-right: rem(80); 
+        }
+        @include ipad {
+            padding-right: 0;
+            margin-bottom: rem(50);
+            margin-top: rem(100);
+        }
+        @include iphone{
+            padding-right: 0;
+            margin-bottom: rem(50);
+            margin-top: rem(100);
+            
+        }
+
 
         &:first-child {
             margin-top: 0; 
@@ -108,7 +249,7 @@
 
 
         &::after {
-            content: "";
+            content: "" ;
             display: block;
             position: absolute;
             bottom: rem(-70);
@@ -118,9 +259,15 @@
             background-color: $dark;
             opacity: 0.07;
 
+            @include ipad {
+                width: 100%;
+                bottom: rem(-50);
+            }
+            @include iphone {
+                width: 100%;
+                bottom: rem(-50);
+            }
         }
-
-
     }
 
     .article {
@@ -144,25 +291,68 @@
         color: $light-dark;
         margin-bottom: rem(30);
 
+        @include ipad {
+            font-size: rem(30);
+            line-height: 1.2em;
+            margin-bottom: rem(20);
+        }
+        @include iphone {
+            font-size: rem(21);
+            line-height: 1.3333em;
+            margin-bottom: rem(20);
+        }
+
+
     }
 
     &__date {
         color: $green-dark;
         margin-bottom: rem(30);
+
+        @include ipad {
+            font-size: rem(14);
+            line-height: 1.7142em;
+            margin-bottom: rem(20);
+        }
+        @include iphone {
+            font-size: rem(14);
+            line-height: 1.7142em;
+            margin-bottom: rem(20);
+        }
+
     }
 
     &__text{
         margin-right: rem(100);
 
+        @include small-screen {
+            margin-right: 0;  
+        }
+
+        @include ipad {
+            font-size: rem(14);
+            line-height: 1.5em;
+        }
+        @include iphone {
+            font-size: rem(14);
+            line-height: 1.5em;
+        }
     }
 
     &__picture{
         margin-top: rem(20);
+        width: 100%;
+        height: 100%;
+        
+        @include iphone {
+            width: 200%;
+        }
     }
-
 }
 
-//ОЩИЙ СТИЛЬ
+
+
+//стилизация отдельных элементов
 .its-me__name_blog {
     font-size: rem(63);
     line-height: 0.88em;
@@ -173,6 +363,17 @@
     position: relative;
     text-align: center;
     margin-bottom: rem(60);
+
+    @include ipad {
+        font-size: rem(49);
+        line-height: 1.06em;
+    }
+    @include iphone {
+        font-size: rem(35);
+        line-height: 1.2em;
+    }
+
+
 
     &:after {
         content: "";
@@ -185,5 +386,9 @@
         background-color: $white;
         right: 0;
         margin: rem(-30) auto;
+
+        @include iphone {
+            width: rem(55);
+        }
     }
 }

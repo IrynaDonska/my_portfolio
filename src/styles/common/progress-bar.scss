@@ -1,36 +1,80 @@
 .progressbar {
     margin-top: rem(60);
-    
 
+    @include ipad { 
+        margin-top: rem(40);
+    }
 
+    @include iphone { 
+        margin-top: rem(10);
+    }
 
     &__row {
         margin-bottom: rem(40);
 
-        &:last-child {
-            margin-bottom: 0; 
+        @include ipad { 
+            text-align: center;
+            margin-bottom: rem(45);
         }
-          
+
+        @include iphone { 
+            text-align: center;
+            margin-bottom: rem(30);
+        }  
     }
+
 
     &__circles {
         display: flex;
         flex-direction: row;
         flex-wrap: wrap;
+
+        @include ipad { 
+            justify-content: center;
+            margin-right: rem(-37);
+
+        }
+
+        @include iphone{ 
+            justify-content: center;
+            margin-right: rem(-37);
+
+        }
+        
     }
 }
 
 
 .progressbar__circle {
+    margin-top: rem(20);
     margin-right: rem(40);
     width: rem(120);
     height: rem(120);
     position:relative;
 
+    @include small-screen {
+        margin-right: rem(37);
+        width: rem(110);
+        height: rem(110);
+    }
+
+    &:first-child {  
+    }
+
+
     &:last-child {
-        margin-right: 0;  
+        margin-right: 0;
+
+        @include ipad { 
+            margin-right: rem(37);  
+        }
+
+        @include iphone{ 
+            margin-right: rem(37);
+        }  
     }
 }
+
 
 .progressbar__name {
     font-family: 'robotomedium';
@@ -39,8 +83,18 @@
     font-size: rem(28);
     line-height: 1.1428em;
     color: $light-dark;
-    margin-bottom: rem(20);
+
+    @include ipad { 
+        font-size: rem(20);
+        line-height: 1.35em;
+    }
+
+    @include iphone { 
+        font-size: rem(20);
+        line-height: 1.35em;
+    }
 }
+
 .progressbar__circle-name {
     font-family: 'robotomedium';
     font-weight: normal;
@@ -53,4 +107,9 @@
     top:50%;
     left:50%;
     transform:translate(-50%,-50%);
+
+    @include small-screen {
+        font-size: rem(13);
+        line-height: 1.1538em;
+    }
 }

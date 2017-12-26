@@ -1,33 +1,118 @@
 .footer {
     width: 100%;
-    grid-area: footer;
 
     &__first-row {
         background-color: rgba(55, 62, 66, 0.85);
-        min-height: rem(150);
         padding-top: rem(30);
         padding-bottom: rem(30);
+
+        @include iphone {
+            padding-top: rem(20);
+            padding-bottom: rem(20);  
+        }
         
         .container {
             display: flex;
             flex-direction: row;
             align-items: baseline;
+
+            @include ipad {
+                display: grid;
+                grid-template-columns: 50% 50%;
+                grid-template-rows: 50% 50%; 
+                grid-template-areas: 
+                "top-left top-right"
+                "bottom bottom"
+            }
+
+            @include iphone {
+                display: grid;
+                grid-template-columns: 100%;
+                grid-template-rows: 33.33% 33.33% 33.33% ; 
+                grid-template-areas: 
+                "top-left"
+                "top-right"
+                "bottom"
+            }
         }
     }
+
+
 
     &__second-row {
         background-color: rgba(108, 156, 90, 0.85);
         text-align: center;
-        min-height: rem(40);
         padding-top: rem(10);
         padding-bottom: rem(10);
+
     }
 
     &__column {
         width: 33.3333%;
         padding-left: rem(25);
         position: relative;
-        
+
+        @include iphone {
+            padding-bottom: rem(20);
+            border-bottom: rem(2) solid rgba($white, 0.2);
+            width: 100%;
+        }
+
+        &:nth-child(1) {
+            padding-left: 0;
+            padding-right: rem(150);
+
+            @include ipad {
+                width: 100%;
+                grid-area: top-left;
+                padding-right: rem(80);
+            }
+
+            
+            @include iphone {
+                padding-left: 0;
+                padding-right: 0;
+                text-align: center;
+                margin-bottom: rem(20);
+            }
+        }
+        &:nth-child(2) {
+            @include ipad {
+                width: 100%;
+                grid-area: top-right;
+                padding-left: 0;
+            }  
+            @include iphone {
+                padding-left: 0;
+                text-align: center;
+                margin-bottom: rem(20);
+            }
+
+        }
+        &:nth-child(3) {
+            border-right:  none;
+            
+            &::after {
+                display: none;
+            }
+
+            @include ipad {
+                width: 100%;
+                grid-area: bottom;
+                margin-top: rem(40);
+                padding-left: 0;
+            }
+            @include iphone {
+                text-align: center;
+                margin-top: 0;
+                padding-bottom: 0;
+                border-bottom: none;
+                padding-left: 0;
+                
+            }
+
+        }
+
         &::after {
             content: "";
             display: block;
@@ -38,20 +123,14 @@
             min-height: rem(90);
             background-color: $white;
             opacity: 0.2;
-        }
 
-
-
-        &:first-child {
-            padding-left: 0;
-            padding-right: rem(150);  
-        }
-
-        &:last-child {
-            border-right:  none;
-            
-            &::after {
+            @include ipad {
                 display: none;
+            }
+
+            @include iphone {
+                display: none;
+                
             }
         }
     }
@@ -64,6 +143,15 @@
         font-size: rem(16);
         line-height: 1.5em;
         color: $white;
+        @include ipad {
+            font-size: rem(14);
+            line-height: 1.7142em;
+        }
+
+        @include iphone {
+            font-size: rem(14);
+            line-height: 1.7142em;
+        }
     }
 
     &__center {
@@ -71,10 +159,38 @@
         .nav {
             margin-bottom: rem(25);
 
+            @include iphone {
+                margin-bottom: rem(20);
+            }
+
+
             &__list {
                 display: flex;
                 flex-wrap: wrap;
 
+                @include iphone {
+                    margin-bottom: rem(20);
+                    justify-content: center;   
+                }
+                
+
+            }
+
+            &__item {
+                margin-right: rem(40);
+
+                @include small-screen {
+                    margin-right: rem(20);
+                }
+
+                @include iphone {
+                    margin-right: rem(10);
+                }
+
+                &:last-child {
+                    margin-right: 0;
+                }
+                
             }
             
             &__link {
@@ -85,13 +201,17 @@
                 line-height: 1.5em;
                 color: $white;
                 cursor: pointer;
-                margin-right: rem(20);
-                
 
-                &:last-child {
-                    margin-right: 0;
+                @include ipad {
+                    font-size: rem(14);
+                    line-height: 1.7142em;
                 }
-                
+
+                @include iphone {
+                    font-size: rem(14);
+                    line-height: 1.7142em;
+                }
+
                 &:hover {
                     color: $green-light;
                     transition: 1s;
@@ -100,6 +220,12 @@
         }
 
         .social {
+            &__list {
+                @include iphone {
+                    justify-content: center;
+                }   
+            }
+            
             &__img {
                 &:hover{
                     fill: $white;
@@ -116,9 +242,17 @@
         line-height: 1.5em;
         color: rgba(255, 255, 255, 0.5);
 
+        @include ipad {
+            font-size: rem(14);
+            line-height: 1.7142em;
+        }
+        @include iphone {
+            font-size: rem(14);
+            line-height: 1.7142em;
+        }
+
         &-author {
             font-family: 'robotobold_italic';
         }
     }
 }
-
