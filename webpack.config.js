@@ -13,7 +13,8 @@ const config = {
         'blog': PATHS.source + '/pages/blog.js',
         'about': PATHS.source + '/pages/about.js',
         'my-work': PATHS.source + '/pages/my-work.js',
-        'svg4everybody': PATHS.source + '/svg4everybody.js'
+        'svg4everybody': PATHS.source + '/svg4everybody.js',
+        'water': PATHS.source + '/pages/water.js'
     },
     output: {
         filename: './js/[name].js'

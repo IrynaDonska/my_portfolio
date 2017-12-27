@@ -1,8 +1,8 @@
 const jquery = require('jquery');
 console.log('index');
 
-//flip эффект
 
+//flip эффект
 (function () {
     var welcomeBlocks = document.querySelectorAll('.welcome__content');
     var autorization = document.querySelector('.autorization-button');
