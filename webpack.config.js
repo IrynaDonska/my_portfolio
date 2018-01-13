@@ -21,7 +21,9 @@ const config = {
     },
     plugins: [
         new UglifyJSPlugin({
-            sourceMap: true
+            sourceMap: true,
+            //exclude: /\./src/scripts/svg4everybody.js/
+
         })
     ],
     module: {

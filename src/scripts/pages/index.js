@@ -1,34 +1,35 @@
 const jquery = require('jquery');
 console.log('index');
-
+const preloader = require('../common/preloader.js');
 
 //flip эффект
-(function () {
-    var welcomeBlocks = document.querySelectorAll('.welcome__content');
-    var autorization = document.querySelector('.autorization-button');
-    var welcomePage = document.querySelector('.welcome'); 
-    //var body = document.querySelector('body');
+let autorizationButton = document.querySelector('.autorization-button');
+let flipped = document.querySelector('.welcome__content');
+let welcomeSection = document.querySelector('.welcome');
+let mainPageBut = document.querySelector('.main-page');
 
-    for ( var i = 0, len = welcomeBlocks.length; i < len; i++ ) {
-        var welcomeBlock = welcomeBlocks[i];
-    };
-    autorization.addEventListener( 'click', function(e) {
-        var checkClassWelcome = welcomeBlock.classList;
-        checkClassWelcome.add('flipped'); 
-        //c.contains('flipped') === true ? c.remove('flipped') : c.add('flipped');
-        autorization.style.opacity='0';
-    });
-    document.addEventListener('click', function() {
-        var checkClassWelcome = welcomeBlock.classList;
-        
-        if (!checkClassWelcome.contains('flipped')) {
-            checkClassWelcome.add('flipped')
-        } else {
-            checkClassWelcome.remove('flipped')        
-        }
-    });
+function rotate(event) {
+    flipped.classList.add('flipped');
+    autorizationButton.style.opacity = '0';
+    autorizationButton.style.cursor = 'default';
+}
 
-    welcomeBlock.addEventListener('click', function(e) {
-        e.stopPropagation()
-    });
-})();
+window.onclick = function(event) {
+    let target = event.target;
+    
+    if (target == welcomeSection) {
+        flipped.classList.remove('flipped'); 
+        autorizationButton.style.opacity = '1';
+        autorizationButton.style.cursor = 'pointer';
+    }
+};
+
+mainPageBut.addEventListener('click', function() {
+    flipped.classList.remove('flipped'); 
+    autorizationButton.style.opacity = '1';
+    autorizationButton.style.cursor = 'pointer';
+
+});
+autorizationButton.addEventListener('click', rotate);
+
+preloader();
